@@ -1,0 +1,132 @@
+[
+  {
+    "path": "data/annotation_reviews.csv",
+    "bytes": 197,
+    "sha256": "ca35519333e7bbea25a4602b54d5a23080738a1640b22a54a44cd79f3d6e55aa"
+  },
+  {
+    "path": "data/color_occurrences.csv",
+    "bytes": 258,
+    "sha256": "df4774fe20a1c471a32469080bafa5dfa10be4756b0c15d10e67c749b0ec2281"
+  },
+  {
+    "path": "data/imagery.csv",
+    "bytes": 128,
+    "sha256": "06f72578d91b5b40657874c4e2f7f51ebdf8af37bb60b2544efaff3f7eab7dc5"
+  },
+  {
+    "path": "data/places.csv",
+    "bytes": 206,
+    "sha256": "b680ace9bdf0f4a0b3a9acb09969c39c4a6b5ab51856e5c550dd7e1e65cc3bf5"
+  },
+  {
+    "path": "data/poem_imagery.csv",
+    "bytes": 234,
+    "sha256": "5c5879df3140d718894ba8ac6f173f1a6b4a56c23a23948dca05b296a20e4cd1"
+  },
+  {
+    "path": "data/poem_lines.csv",
+    "bytes": 127,
+    "sha256": "344581d041d16937cb87337f9a137656c9382ea4adc756456034725ec1828a3b"
+  },
+  {
+    "path": "data/poem_places.csv",
+    "bytes": 212,
+    "sha256": "5ae830f35aa432a43cb21f40c7fd8e0de5d7415f46eb5becd43028183ae55109"
+  },
+  {
+    "path": "data/poem_tags.csv",
+    "bytes": 194,
+    "sha256": "b97b329ae8d26591fe9b7df0ba32d73eeaf6b8f886fe032673f3ab290ca56c40"
+  },
+  {
+    "path": "data/poems.csv",
+    "bytes": 191,
+    "sha256": "e46a0b6df9d6c46f280902cf3ed964eeda10d0ea43c1c284b03e7f27fbac0709"
+  },
+  {
+    "path": "data/poet_relations.csv",
+    "bytes": 212,
+    "sha256": "bda87fec6ec34b4062021143283dd02aa4aa3c2ed0659aee4367e2255078c3aa"
+  },
+  {
+    "path": "data/poet_schools.csv",
+    "bytes": 142,
+    "sha256": "3b0b815eedc6f255002339d8cda7b9d28a496cdc7ac818b68a98af26776c8c41"
+  },
+  {
+    "path": "data/poets.csv",
+    "bytes": 182,
+    "sha256": "75f4bb44f0ad31c2e9feaaeaa5eba09541c16df7ab1753d37aa1e031deefd35f"
+  },
+  {
+    "path": "data/prosody_annotations.csv",
+    "bytes": 259,
+    "sha256": "47fbce54e3058b93d2fa2a179871414b06e7a9e698105bc6d85d1c6f7b00887d"
+  },
+  {
+    "path": "data/sources.csv",
+    "bytes": 170,
+    "sha256": "152dbc055f30a8e3892e658c3c369ca00fffbe758ac5b84b568569ed7f23e9f9"
+  },
+  {
+    "path": "data/tags.csv",
+    "bytes": 132,
+    "sha256": "fbe227973f10806959ed70b258af7ac0a3235e8db19c93c751e8b728f9319db0"
+  },
+  {
+    "path": "data/technique_annotations.csv",
+    "bytes": 223,
+    "sha256": "e2a47238420495eaa6efa23f9ce0ffa4e81cd4b577efa82a29bca96ddc89bda1"
+  },
+  {
+    "path": "docs/关系说明.md",
+    "bytes": 4958,
+    "sha256": "2a0b90a3930468251d2bef11bd6e3cccf44edd40e9f77db6b799219a2172bd48"
+  },
+  {
+    "path": "docs/字段说明.md",
+    "bytes": 21233,
+    "sha256": "bc34a20e6b8fbc4ae8be0b4191dbb9de860f799bf3aa0f3f567eb1b844b6ba28"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2612,
+    "sha256": "e99dae3524f55f00a131e973de6a01daef3d8096f79ba97c9b01b6e50b9110b8"
+  },
+  {
+    "path": "reports/workbook_inspection.ndjson",
+    "bytes": 875256,
+    "sha256": "3ac9ae099548dfbdf2c5b36da74fd7f50ef47c7a7246cddc88f688e439266ba1"
+  },
+  {
+    "path": "reports/交付核实.json",
+    "bytes": 498,
+    "sha256": "d68cca773b0cc3c94e01cc9c323173ed781bde957ca2e8522499558022655aca"
+  },
+  {
+    "path": "reports/首次校验.json",
+    "bytes": 409,
+    "sha256": "06a986813cb1da56db74a020a3db59eab6a12a445a0f9631940b7aa6dea62aab"
+  },
+  {
+    "path": "schema.json",
+    "bytes": 69706,
+    "sha256": "18de35ee499872b363d82584b8ef10e42663483ba94432d081ed833dcb102f30"
+  },
+  {
+    "path": "scripts/new_id.py",
+    "bytes": 384,
+    "sha256": "c003db331f4fcd45258126c033425923176207f04e41a0c72856160f5d66ca70"
+  },
+  {
+    "path": "scripts/validate.py",
+    "bytes": 13501,
+    "sha256": "7fa832509f3c73cdd10846b7ecbe73a75c9ba325c87cc03d7888b109a140813e"
+  },
+  {
+    "path": "数据字典.xlsx",
+    "bytes": 25032,
+    "sha256": "46eb722287e002a1033fa836563623204b17b9be50c8739485d88043b19e9cca"
+  }
+]

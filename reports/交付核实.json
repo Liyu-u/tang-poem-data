@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "tables": 16,
+  "fields": 266,
+  "records": 0,
+  "csv_encoding": "UTF-8-SIG",
+  "validation_errors": [],
+  "validator_self_tests_passed": 16,
+  "xlsx_sheets": 4,
+  "xlsx_integrity": "PASS",
+  "existing_files_overwritten": false,
+  "initial_directory_state": "existed and empty",
+  "note": "空模板可供录入，未完成真实数据采集；Excel已导出并检查内部结构及四个工作表的渲染预览。"
+}

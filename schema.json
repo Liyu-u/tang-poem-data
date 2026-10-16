@@ -1,0 +1,2743 @@
+{
+  "project": "文镜——诗映大唐",
+  "version": "1.0.0",
+  "encoding": "UTF-8-SIG",
+  "tables": {
+    "poems": {
+      "label": "诗作",
+      "prefix": "poem",
+      "fields": [
+        {
+          "name": "poem_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^poem_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "title",
+          "label": "题名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "poet_id",
+          "label": "关联 poets",
+          "type": "id",
+          "required": true,
+          "ref": "poets",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "poetic_form",
+          "label": "诗体",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "五言绝句",
+            "七言绝句",
+            "五言律诗",
+            "七言律诗",
+            "五言排律",
+            "七言排律",
+            "五言古诗",
+            "七言古诗",
+            "杂言古诗",
+            "其他",
+            "待考"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "yuefu_type",
+          "label": "乐府属性",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "乐府",
+            "非乐府",
+            "待考"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "period",
+          "label": "分期（初唐/盛唐/中唐/晚唐/待考）",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "year_start",
+          "label": "创作时间下界（公元年）",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "year_end",
+          "label": "创作时间上界（公元年）",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "dating_basis",
+          "label": "断代依据",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "full_text",
+          "label": "选定底本文字；以LF分句，无末尾换行",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "variant_notes",
+          "label": "异文说明；改底本需重审相关标注",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poem_id"
+    },
+    "poem_lines": {
+      "label": "诗句",
+      "prefix": "line",
+      "fields": [
+        {
+          "name": "line_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^line_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "line_no",
+          "label": "句序，从1连续",
+          "type": "integer",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "couplet_no",
+          "label": "联序，从1开始",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "line_text",
+          "label": "单句原文；保留标点，无换行",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [
+        [
+          "poem_id",
+          "line_no"
+        ]
+      ],
+      "pk": "line_id"
+    },
+    "poets": {
+      "label": "诗人",
+      "prefix": "poet",
+      "fields": [
+        {
+          "name": "poet_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^poet_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "name",
+          "label": "姓名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "courtesy_name",
+          "label": "字",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "art_name",
+          "label": "号",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "birth_year",
+          "label": "生年",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "death_year",
+          "label": "卒年",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "birthplace_id",
+          "label": "关联 places",
+          "type": "id",
+          "required": false,
+          "ref": "places",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "biography",
+          "label": "有来源的生平摘要",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "attribution_notes",
+          "label": "作者归属/待考说明",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poet_id"
+    },
+    "sources": {
+      "label": "来源",
+      "prefix": "src",
+      "fields": [
+        {
+          "name": "source_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^src_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "source_type",
+          "label": "来源类型",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "book",
+            "article",
+            "database",
+            "web",
+            "archive",
+            "other"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "title",
+          "label": "来源题名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "creator",
+          "label": "作者/编者/机构",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "publisher",
+          "label": "出版者",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "edition",
+          "label": "版本/版次",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "publication_date",
+          "label": "出版时间（可仅年）",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "url",
+          "label": "来源地址",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "accessed_on",
+          "label": "访问日期 YYYY-MM-DD",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "rights",
+          "label": "版权及使用许可",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "bibliographic_note",
+          "label": "完整书目信息",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "source_id"
+    },
+    "tags": {
+      "label": "标签词表",
+      "prefix": "tag",
+      "fields": [
+        {
+          "name": "tag_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^tag_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "tag_name",
+          "label": "标准标签名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "category",
+          "label": "标签类别；诗体单列，勿混入主题",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "theme",
+            "emotion",
+            "technique",
+            "school",
+            "style",
+            "other"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "parent_tag_id",
+          "label": "关联 tags",
+          "type": "id",
+          "required": false,
+          "ref": "tags",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "definition",
+          "label": "标签定义及边界",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [
+        [
+          "category",
+          "tag_name"
+        ]
+      ],
+      "pk": "tag_id"
+    },
+    "poem_tags": {
+      "label": "诗作多标签",
+      "prefix": "ptag",
+      "fields": [
+        {
+          "name": "poem_tag_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^ptag_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "tag_id",
+          "label": "关联 tags",
+          "type": "id",
+          "required": true,
+          "ref": "tags",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poem_tag_id"
+    },
+    "imagery": {
+      "label": "意象词表",
+      "prefix": "img",
+      "fields": [
+        {
+          "name": "imagery_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^img_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "canonical_name",
+          "label": "意象标准名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "category",
+          "label": "意象类别（自然/人文等）",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "definition",
+          "label": "意象定义及语义边界",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [
+        [
+          "canonical_name"
+        ]
+      ],
+      "pk": "imagery_id"
+    },
+    "poem_imagery": {
+      "label": "意象出现及解释",
+      "prefix": "pimg",
+      "fields": [
+        {
+          "name": "poem_imagery_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^pimg_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "imagery_id",
+          "label": "关联 imagery",
+          "type": "id",
+          "required": true,
+          "ref": "imagery",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "surface_form",
+          "label": "原文中的意象词形",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "contextual_meaning",
+          "label": "本诗中的语境意义",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poem_imagery_id"
+    },
+    "technique_annotations": {
+      "label": "表现手法标注",
+      "prefix": "tech",
+      "fields": [
+        {
+          "name": "technique_annotation_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^tech_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "technique_tag_id",
+          "label": "关联 tags",
+          "type": "id",
+          "required": true,
+          "ref": "tags",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "effect",
+          "label": "表达效果及与证据的联系",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "technique_annotation_id"
+    },
+    "places": {
+      "label": "地名及坐标",
+      "prefix": "place",
+      "fields": [
+        {
+          "name": "place_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^place_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "historical_name",
+          "label": "历史地名",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "modern_name",
+          "label": "今名",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "place_type",
+          "label": "地点类型",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "parent_place_id",
+          "label": "关联 places",
+          "type": "id",
+          "required": false,
+          "ref": "places",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "longitude",
+          "label": "经度 WGS84",
+          "type": "decimal",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": "-180..180"
+        },
+        {
+          "name": "latitude",
+          "label": "纬度 WGS84",
+          "type": "decimal",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": "-90..90"
+        },
+        {
+          "name": "coordinate_precision",
+          "label": "坐标精度/估计范围",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "identification_note",
+          "label": "古今地名考证及争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "place_id"
+    },
+    "poem_places": {
+      "label": "诗与地点关联",
+      "prefix": "pplace",
+      "fields": [
+        {
+          "name": "poem_place_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^pplace_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "place_id",
+          "label": "关联 places",
+          "type": "id",
+          "required": true,
+          "ref": "places",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "relation_type",
+          "label": "地点关联类型",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "mentioned",
+            "composition",
+            "travel",
+            "allusion",
+            "other"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poem_place_id"
+    },
+    "poet_relations": {
+      "label": "诗人关系",
+      "prefix": "prel",
+      "fields": [
+        {
+          "name": "poet_relation_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^prel_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "from_poet_id",
+          "label": "关联 poets",
+          "type": "id",
+          "required": true,
+          "ref": "poets",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "to_poet_id",
+          "label": "关联 poets",
+          "type": "id",
+          "required": true,
+          "ref": "poets",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "relation_type",
+          "label": "有向关系类型",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "friend",
+            "gift_poem",
+            "influence",
+            "teacher",
+            "kinship",
+            "other"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "evidence_poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": false,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "evidence_quote",
+          "label": "证据引文",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "方向说明及关系依据",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "year_start",
+          "label": "关系发生时间下界",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "year_end",
+          "label": "关系发生时间上界",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "置信度",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "poet_relation_id"
+    },
+    "prosody_annotations": {
+      "label": "声律标注",
+      "prefix": "pros",
+      "fields": [
+        {
+          "name": "prosody_annotation_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^pros_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "annotation_type",
+          "label": "声律内容",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "tone_pattern",
+            "rhyme",
+            "antithesis",
+            "meter",
+            "exception",
+            "other"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "pattern",
+          "label": "平仄/韵脚/格律内容",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "rhyme_system",
+          "label": "采用的韵书或音系",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "rhyme_group",
+          "label": "韵部",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "reading_note",
+          "label": "多音字、古音及格律异例说明",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "prosody_annotation_id"
+    },
+    "poet_schools": {
+      "label": "诗人与流派多对多",
+      "prefix": "pschool",
+      "fields": [
+        {
+          "name": "poet_school_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^pschool_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "poet_id",
+          "label": "关联 poets",
+          "type": "id",
+          "required": true,
+          "ref": "poets",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "school_tag_id",
+          "label": "关联 tags",
+          "type": "id",
+          "required": true,
+          "ref": "tags",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "explanation",
+          "label": "归类依据；允许争议与多流派",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "置信度",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [
+        [
+          "poet_id",
+          "school_tag_id",
+          "source_id"
+        ]
+      ],
+      "pk": "poet_school_id"
+    },
+    "annotation_reviews": {
+      "label": "审核历史（追加）",
+      "prefix": "review",
+      "fields": [
+        {
+          "name": "review_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^review_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "target_table",
+          "label": "被审记录表",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poems",
+            "poem_lines",
+            "poets",
+            "sources",
+            "tags",
+            "poem_tags",
+            "imagery",
+            "poem_imagery",
+            "technique_annotations",
+            "places",
+            "poem_places",
+            "poet_relations",
+            "prosody_annotations",
+            "poet_schools",
+            "color_occurrences"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "target_id",
+          "label": "目标记录主键",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "target_updated_at",
+          "label": "被审版本 updated_at，避免文本修改后误沿用",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "decision",
+          "label": "审核结论",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "reviewer",
+          "label": "审核人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "reviewed_at",
+          "label": "审核时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_comment",
+          "label": "审核意见",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "previous_review_id",
+          "label": "关联 annotation_reviews",
+          "type": "id",
+          "required": false,
+          "ref": "annotation_reviews",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": false,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "review_id"
+    },
+    "color_occurrences": {
+      "label": "颜色词出现",
+      "prefix": "color",
+      "fields": [
+        {
+          "name": "color_occurrence_id",
+          "label": "稳定标识符",
+          "type": "id",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "^color_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$；不可更改或复用"
+        },
+        {
+          "name": "poem_id",
+          "label": "关联 poems",
+          "type": "id",
+          "required": true,
+          "ref": "poems",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "scope",
+          "label": "标注层级",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "poem",
+            "line",
+            "span"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "start_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "end_line_id",
+          "label": "关联 poem_lines",
+          "type": "id",
+          "required": false,
+          "ref": "poem_lines",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "start_offset",
+          "label": "起句内字符起点，0基含起点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "end_offset",
+          "label": "止句内字符终点，0基不含终点",
+          "type": "integer",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "quote",
+          "label": "逐字对应的引文；跨句以LF相连",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "explanation",
+          "label": "判断理由/语境解释",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "confidence",
+          "label": "标注置信度，非历史真实性",
+          "type": "decimal",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": "0..1"
+        },
+        {
+          "name": "color_term",
+          "label": "原文颜色词",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "normalized_color",
+          "label": "归一颜色名称",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "color_hex",
+          "label": "展示色值 #RRGGBB（策展映射）",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "usage_type",
+          "label": "颜色用法",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "literal",
+            "figurative",
+            "ambiguous"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "mapping_basis",
+          "label": "色值映射依据；勿视为唐代实测颜色",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "source_id",
+          "label": "关联 sources",
+          "type": "id",
+          "required": true,
+          "ref": "sources",
+          "enum": [],
+          "rule": "前缀_小写UUID；创建后不变，不按行号或名称生成"
+        },
+        {
+          "name": "source_locator",
+          "label": "卷/页/条目/段落定位",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "review_status",
+          "label": "当前审核状态",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "needs_revision"
+          ],
+          "rule": ""
+        },
+        {
+          "name": "created_by",
+          "label": "录入/标注人",
+          "type": "text",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "created_at",
+          "label": "创建时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "updated_at",
+          "label": "修改时间，带时区 ISO8601",
+          "type": "datetime",
+          "required": true,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        },
+        {
+          "name": "notes",
+          "label": "备注/争议",
+          "type": "text",
+          "required": false,
+          "ref": "",
+          "enum": [],
+          "rule": ""
+        }
+      ],
+      "unique": [],
+      "pk": "color_occurrence_id"
+    }
+  }
+}

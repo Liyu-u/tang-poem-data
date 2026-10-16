@@ -1,0 +1,21 @@
+{
+  "errors": [],
+  "counts": {
+    "poems": 0,
+    "poem_lines": 0,
+    "poets": 0,
+    "sources": 0,
+    "tags": 0,
+    "poem_tags": 0,
+    "imagery": 0,
+    "poem_imagery": 0,
+    "technique_annotations": 0,
+    "places": 0,
+    "poem_places": 0,
+    "poet_relations": 0,
+    "prosody_annotations": 0,
+    "poet_schools": 0,
+    "annotation_reviews": 0,
+    "color_occurrences": 0
+  }
+}
