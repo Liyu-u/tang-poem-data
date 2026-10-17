@@ -1,0 +1,20 @@
+{
+  "migration": "sentence_structure_migration_v1",
+  "migration_at": "2026-10-16T18:30:00+08:00",
+  "poem_count": 20,
+  "old_line_count": 130,
+  "new_sentence_count": 268,
+  "mapping_row_count": 268,
+  "migrated_annotation_counts": {
+    "poem_imagery": 164,
+    "color_occurrences": 25
+  },
+  "appended_review_count": 189,
+  "review_policy": "受句结构影响的意象和颜色坐标全部标记 needs_revision；旧审核通过记录保留为历史链路",
+  "source_text_policy": "未覆盖原始来源；原始文本仍在 normalization v1 report，最终展示文本在 normalization v2 report",
+  "outputs": {
+    "mapping": "reports\\tang_poem_sentence_migration_v1.csv",
+    "normalization": "reports\\tang_poem_text_normalization_v2.csv",
+    "candidates": "reports\\tang_poem_annotation_candidates_v2.csv"
+  }
+}

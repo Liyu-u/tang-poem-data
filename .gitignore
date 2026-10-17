@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 ~$*
 reports/workbook_inspection.ndjson
+reports/all_form_patterns.txt
+reports/tang_poem_expansion_backup_v1/
