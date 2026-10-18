@@ -1,28 +1,31 @@
 # 文镜——诗映大唐 数据工程
 
-版本 1.1.0；建立日期 2026-10-16（Asia/Shanghai）。
+版本 1.2.0；建立日期 2026-10-16（Asia/Shanghai）；扩展批次更新 2026-10-18。
 
-当前基础语料已扩展为160首唐诗、1621条单句、21位诗人和126条来源记录。新增140首由旧库精选唐诗110首、本地《唐诗三百首》快照20首和本轮补充的10首初唐诗组成。新增130首的待修订内容已完成一轮网页证据复核：主题 175/0/2、意象 650/0/6、颜色 124/0/5、表现手法 147/0/67、年份 130/0/0（依次为 `approved/needs_revision/rejected`）；新增10首的52条内容标注也已完成 Codex 辅助复核并改为 `approved`。当前三张既有内容标注主表不再有 `needs_revision`；主表 `poems.review_status` 仍为 `pending`，但不作为当前原型开发阻塞。
+当前基础语料已扩展为500首唐诗、11245条单句、50位主流诗人和126条来源记录。新增340首来自固定提交的 Chinese Poetry 本地快照；每首新增诗均保留唯一 `poem_id`、简体展示正文、诗人、四期分期、来源定位和分句记录。颜色、地点和流派关联由可追溯词典/分组规则生成，当前仍标记为 `pending` 候选，不冒充专家终审。
 
-## 当前口径更新（2026-10-17）
+本轮覆盖结果：颜色词候选涉及409首诗（1603条出现记录），地点词典候选涉及336首诗（339条诗地关联、112个地点词条）；四个研究流派分组分别覆盖139、170、130、179首，均超过每组50首目标。颜色和地点目标是“至少约150首”，当前样本已超过目标，后续重点转向语境抽样核验和可视化统计口径。
+
+## 当前口径更新（2026-10-18）
 
 - **真人复核暂不作为开发阻塞。** 当前 `approved` 表示“已有原文定位和来源依据，可进入项目内部探索统计”；`pending` 仍表示尚未记录正式审核签名，而不是“数据不可用”。比赛提交或公开发布前，再对争议项做抽样复核即可。
-- **分期优先于精确年份。** `period`（初唐/盛唐/中唐/晚唐）是历史时间轴的唯一主字段；当前160首的 `year_start`、`year_end` 已按 period-only 口径统一留空，不用作者生卒年替代作品年份。改写审计见 `reports/tang_poem_period_only_rewrite_v1.csv`。
-- **分期比例只作抽样参考。** 依据林庚对《全唐诗》的分期统计，四期约为初唐 6.43%、盛唐 14.79%、中唐 44.37%、晚唐 34.40%。这反映的是传世编纂本的收录分布，不是唐代真实创作总量；当前160首仍是精选研究样本，不按该比例删改代表作。详细计算和两种采样方案见 `reports/tang_poem_period_reference_distribution_v1.md`。
+- **分期优先于精确年份。** `period`（初唐/盛唐/中唐/晚唐）是历史时间轴的唯一主字段；当前500首的 `year_start`、`year_end` 仍按 period-only 口径使用，不用作者生卒年替代作品年份。新增340首的分期由诗人分期规则生成，标注为候选。
+- **分期比例只作抽样参考。** 依据林庚对《全唐诗》的分期统计，四期约为初唐 6.43%、盛唐 14.79%、中唐 44.37%、晚唐 34.40%。这反映的是传世编纂本的收录分布，不是唐代真实创作总量；当前500首仍是精选研究样本，不按该比例删改代表作。历史参考报告见 `reports/tang_poem_period_reference_distribution_v1.md`。
 - **简体是展示层，原文版本仍可追溯。** `poems.full_text`、题名和 `poem_lines.line_text` 以简体展示；`source_id`、`source_locator`、`variant_notes` 和规范化审计报告保留底本、异文与转换记录。具体例子见 `docs/字段说明.md` 的“文本版本记录示例”。
-- **每首诗只保留一个主版本。** 当前 `full_text` 是唯一用于展示和统计的选定文本；其他读法只在 `variant_notes` 或审计报告中作来源说明，不进入主表和统计。160首的选择登记见 `reports/tang_poem_canonical_text_selection_v1.csv`。
+- **每首诗只保留一个主版本。** 当前 `full_text` 是唯一用于展示和统计的选定文本；其他读法只在 `variant_notes` 或审计报告中作来源说明，不进入主表和统计。历史160首选择登记见 `reports/tang_poem_canonical_text_selection_v1.csv`，新增批次以 Chinese Poetry 固定快照定位为准。
 - **标签词典的原 `pending` 不等于诗歌标注全部失效。** 原先10条待定词典项本轮已按定义、边界和来源完成项目规则确认，当前状态已改为 `approved`；这只确认词典规则，不等于每首诗的专家终审。规则说明见 `reports/tang_poem_tag_dictionary_v1.md`，逐诗标注仍应按原文片段记录。
-- **当前 `pending` 的具体范围已单列。** 160首主表、1621条诗句、21位诗人和30条格律记录仍是内部流程待关闭；126条 `sources.csv` 记录现在仅作历史外键和追溯，不是公开数据发布门槛。具体问题、处理顺序和剩余边界见 `reports/tang_poem_pending_scope_v1.md`。
+- **当前 `pending` 的具体范围已单列。** 500首主表、11245条诗句、50位诗人以及新增颜色、地点、流派候选仍是内部流程待关闭；126条 `sources.csv` 记录仅作历史外键和追溯，不是公开数据发布门槛。具体边界见扩展报告和 `reports/tang_poem_pending_scope_v1.md`。
 - **来源登记分为内外两层。** `data/sources.csv` 和 `reports/source_rights_register_v1.csv` 保留历史来源登记；对外只使用已统一的 Chinese Poetry 主来源及 `LICENSES/Chinese-Poetry-MIT.txt`。公开来源链接固定到 Chinese Poetry 提交 `b8594f81a89752241442f2ce267d6f66f96704ee`。
-- **公开主来源已统一。** `poems.csv` 与 `poem_lines.csv` 的正文来源统一为 Chinese Poetry 本地快照；160首均保留一个 `source_id`、一个 `full_text` 和一个快照记录定位。简繁与空白规范化后一致122首，另38首保留项目已选定的简体展示异文，具体见 `reports/tang_poem_chinese_poetry_primary_v1.csv`。
+- **公开主来源已统一。** `poems.csv` 与 `poem_lines.csv` 的正文来源统一为 Chinese Poetry 本地快照；500首均保留一个 `source_id`、一个 `full_text` 和一个快照记录定位。新增批次仅保留古诗正文和必要标点，不复制现代注释、翻译或赏析。
 - **公开许可已收敛。** 对外数据包只声明 Chinese Poetry 的 MIT 许可、仓库归属和许可证文本；人民教育出版社、维基文库等网页不再作为公开正文来源。它们保留在内部证据登记中，不随公开来源目录导出。
 
 ## 文件
 
 - data/：16张结构化主表 + 3张公开导出表，均为 UTF-8-SIG CSV；使用英文列名、中文字段释义；逗号分隔，含逗号/换行的字段由标准CSV引号包围。
-- data/public_poems.csv：面向网页正文展示的极简诗文表；当前160首诗一诗一行，仅保留 `poem_id`、诗名、作者和选定正文，不包含内部审核、来源和迁移字段。
+- data/public_poems.csv：面向网页正文展示的极简诗文表；当前500首诗一诗一行，仅保留 `poem_id`、诗名、作者和选定正文，不包含内部审核、来源和迁移字段。
 - data/public_sources.csv：面向网页和参赛展示的主来源目录；当前仅1条 Chinese Poetry 记录，包含固定版本链接、MIT 许可和署名。
-- data/public_poem_sources.csv：面向网页和参赛展示的诗—来源映射表；当前160条记录、160个不同 `poem_id`，每首诗一行，含 Chinese Poetry 快照文件、记录序号和记录 ID。前端需要显示“某首诗来自哪里”时读取这张表。
+- data/public_poem_sources.csv：面向网页和参赛展示的诗—来源映射表；当前500条记录、500个不同 `poem_id`，每首诗一行，含 Chinese Poetry 快照文件、记录序号和记录 ID。前端需要显示“某首诗来自哪里”时读取这张表。
+- `public_data/`：面向网页、演示视频和参赛材料的整理后结果包；只保留诗歌分类、诗人画像、流派、关系、意象、颜色、地点及公开来源，不包含审核状态、脚本过程、置信度、创建时间和迁移记录。前端默认读取此目录，不直接读取内部 `data/` 表。
 - data/sources.csv：内部来源登记和外键表，保留数据关联所需记录；其中可能包含方法资料和核验资料，不作为对外展示清单。
 - 数据字典.xlsx：表目录、字段字典、外键关系、枚举值；仅说明结构，不承载正式数据。
 - schema.json：字段、主外键、枚举及约束的机器可读定义。
@@ -45,7 +48,12 @@
 - scripts/resolve_user_confirmed_policy_v1.py：落实单一主文本政策，并复核新增初唐批次的52条内容标注。
 - scripts/build_public_sources_v1.py：同时生成去重的 `public_sources.csv` 和一诗一行的 `public_poem_sources.csv`，自动排除内部规则和未用于诗文正文的资料。
 - scripts/build_public_poems_v1.py：从 `poems.csv` 和 `poets.csv` 生成仅含诗名、作者和正文的 `public_poems.csv`；来源与许可信息由另外两张公开来源表承载。
+- scripts/build_public_result_package_v1.py：生成 `public_data/` 结果包，把内部过程字段与对外展示结果分离。
 - scripts/promote_chinese_poetry_primary_v1.py：将160首诗和诗句的主来源统一为 Chinese Poetry 快照，保留现有简体主文本及异文说明并生成迁移审计报告。
+- scripts/expand_corpus_50_poets_color_places_v1.py：从160首基线扩展到500首、50位主流诗人，并按词典/分组规则生成颜色、地点和四类流派候选；脚本可重复运行且不会重复追加。
+- scripts/build_poet_feature_profiles_v1.py：按诗人统计总体意象、花草植物、动物、乐器、建筑及战争/历史事件词面候选，输出前五项和证据句。
+- scripts/build_poet_profiles_v1.py：汇总50位诗人的生卒年候选、项目流派、已有作品关系证据，以及“文本地名提及”与“创作地点候选”的分开统计。
+- scripts/build_researched_relation_network_v1.py：把外部史料关系与原有作品证据分层合并，输出关系明细、配对汇总和网络节点摘要；不自动回写主关系表。
 - scripts/build_new130_stats_web_v1.py：生成网页证据复核后的新增130首统计 JSON 和摘要。
 - scripts/classify_form_period_v1.py：依据权威分类规则和 poem_lines 句式结构，生成诗体、乐府属性、文学分期候选，并同步权威来源目录。
 - scripts/build_form_period_third_review_v1.py：生成第三轮复核报告；使用 `--apply` 可回写已确认修正并生成 v2 证据表。
@@ -79,13 +87,22 @@
 - reports/tang_poem_chinese_poetry_primary_summary_v1.md：主来源统一和38条展示异文的摘要。
 - reports/：首次校验及交付核实结果；以后校验默认仅输出终端。
 
-160首的 `poems.title`、`poems.full_text` 与 `poem_lines.line_text` 以简体字作为展示层文本；来源 URL、版本说明和 `source_script=繁体` 保持原记录，不视为重新校勘。首批20首的规范化报告仍保留初始迁移快照；扩展130首和新增10首的原始文本、转换前后哈希、分句数量和转换状态分别记录在 `reports/tang_poem_expansion_text_audit_v1.csv` 与 `reports/tang_poem_early_tang_text_audit_v1.csv`。
+500首的 `poems.title`、`poems.full_text` 与 `poem_lines.line_text` 以简体字作为展示层文本；来源定位、版本说明和 `source_id` 保持可追溯，不视为重新校勘。历史20/130/10首的规范化报告仍保留初始迁移快照；新增340首由 `expand_corpus_50_poets_color_places_v1.py` 记录固定快照文件、记录序号和记录 ID。
 
 当前 `poem_lines` 已统一为“一个标点分隔的单句一行”：按 `，。！？；` 保留标点切分，`poems.full_text` 以 LF 拼接这些单句。首批20首旧的130条对句与新的268条单句之间的逐条关系见 `reports/tang_poem_sentence_migration_v1.csv`；本次扩展清单见 `reports/tang_poem_expansion_manifest_v1.csv`，ID映射见 `reports/tang_poem_expansion_id_map_v1.csv`；新增10首的行记录由 `add_early_tang_v1.py` 生成。
 
-扩展前的四张基础表备份在 `reports/tang_poem_expansion_backup_v1/`。新导入的130首、1269条单句及本次新增的特征候选已完成网页证据复核；首批20首遗留16条也已完成同口径复核；新增10首初唐诗暂作为独立初始候选批次。当前内容标注主表和意象词典不再保留当前 `needs_revision`；`annotation_reviews.csv` 中的历史 `needs_revision` 行仍原样保留，不能按历史记录行数判断当前主表状态。`rejected` 行仍留在原始数据中且不进入确认统计。来源权利、正文版本和主表正式审核状态也未关闭；这些门禁不阻塞当前内部原型。统计时必须区分“网页证据复核标注”与“真人已审核标注”，不能把结果直接解释为160首总体结论。
+扩展前的160首基础表备份在 `reports/tang_poem_expansion_backup_v1/`。历史130首和10首的网页证据复核记录继续保留；本轮新增340首的颜色、地点、流派候选由规则生成并保留 `pending`，不能直接解释为专家文学结论或真实历史行程。统计时必须区分“规则候选”与“人工/专家已审核标注”，不能把500首精选样本外推为全部唐诗总体结论。
 
-本轮已补充三类扩展数据：`places.csv` 20个地点、`poem_places.csv` 19条诗地关联、`poet_relations.csv` 5条有向关系和 `prosody_annotations.csv` 20条句式/韵部候选。地点坐标为现代地图近似值，诗人关系以题名或赠答诗为证据，声律记录采用“平水韵候选＋句式统计”口径；它们均保留来源、置信度和 `pending` 状态，暂不把候选解释成完整历史考证或平仄定稿。
+历史批次已补充地点、诗人关系和声律候选；本轮扩展另生成112个地点词条、339条诗地关联、1603条颜色出现记录和四类流派研究分组。地点古今对应、颜色色值和流派边界均保留来源、置信度和 `pending` 状态，暂不把候选解释成完整历史考证、实测颜色或唯一文学史归类。详见 `reports/tang_poem_expansion_50_poets_color_places_v1.md`。
+
+按诗人的意象、花草植物、动物、乐器、建筑及历史事件词面统计见 `reports/tang_poet_feature_profiles_v1.csv`、`reports/tang_poet_feature_profiles_v1.json` 和 `reports/tang_poet_event_candidates_v1.csv`。这些结果用于探索性可视化，所有词面命中仍为 `pending` 候选，不能直接当作诗人的文学偏好或作品创作背景定论。
+
+诗人档案汇总见 `reports/tang_poet_profiles_v1.md` 和 `reports/tang_poet_profiles_v1.csv`。其中：
+
+- `reports/tang_poet_biographical_profiles_v1.csv` 为50位诗人的生卒年候选；`exact_common` 表示通行年份，`approximate` 表示约数，`partial` 表示只掌握一端，`unknown` 表示暂不详；这些年份不用于反推单首诗的创作年。
+- `reports/tang_poet_school_profiles_v1.csv` 汇总诗人—项目研究分组；一位诗人可跨组，不能当作唯一文学史流派结论。
+- `reports/tang_poet_relations_v1.csv` 与 `reports/tang_poet_relation_summary_v1.csv` 保留原有5条作品证据关系；外部史料研究另见 `reports/tang_poet_relations_research_v1.md`、`reports/tang_poet_relations_researched_v2.csv` 和 `reports/tang_poet_relation_summary_v2.csv`，目前新增20条、合并后22对诗人，全部保持 `research_pending`，不将文学并称自动等同现实交游。
+- `reports/tang_poet_place_profiles_v1.csv` 与 `reports/tang_poet_place_details_v1.csv` 严格区分 `mentioned`（诗中提及）、`composition`（已有创作场域候选）和 `allusion`（典故）；当前只有2条 `composition` 候选，不能把其余地点提及当作创作地点。
 
 ## 开始录入
 
@@ -95,7 +112,7 @@
 
 打开CSV时使用Excel“从文本/CSV导入”，编码 UTF-8，ID、引文、年份不确定表达按字典处理，保存仍选带BOM的UTF-8 CSV。不要把换行文本拆成多条记录。历史年份用公元整数，约数在依据/备注说明。
 
-运行 `python scripts/validate.py`（任何工作目录均可），或 `python scripts/validate.py --root D:/poem`。错误返回1，配置/读文件错误也报告；无错误返回0。当前160首及扩展表已通过结构校验，但校验不能代替文本版本、来源权利或文学解释的事实核查。
+运行 `python scripts/validate.py`（任何工作目录均可），或 `python scripts/validate.py --root D:/poem`。错误返回1，配置/读文件错误也报告；无错误返回0。当前500首扩展表已通过结构校验和16项自测，但校验不能代替文本版本、来源权利或文学解释的事实核查。
 
 若重新执行首批迁移脚本，导入后运行 `python scripts/normalize_display_text.py --root .`，将题名、正文和分句统一为简体展示文本，并生成可回溯的规范化审计报告。
 
@@ -115,4 +132,4 @@
 
 校验检查编码与表头、必填、UUID主键、重复键、外键、枚举、数字/时间、坐标、标签类别、连续句序、文本对齐、标注所属诗及片段、审核目标与版本。不能自动证实史实、底本权威性、古音、流派划分或文学解释；这些需人工核查原始来源。
 
-扩展脚本只允许从20首基线运行一次，并在写入前创建 `reports/tang_poem_expansion_backup_v1/`；后续更新先另存版本/备份，再同步字典与schema。sources/（如有同步项目参考）只读。
+扩展脚本以160首基线为输入，写入500首目标；脚本已加入重复运行保护和标注范围规范化。后续更新先另存版本/备份，再同步字典与schema。sources/（如有同步项目参考）只读。
