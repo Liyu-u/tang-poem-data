@@ -133,3 +133,26 @@
 校验检查编码与表头、必填、UUID主键、重复键、外键、枚举、数字/时间、坐标、标签类别、连续句序、文本对齐、标注所属诗及片段、审核目标与版本。不能自动证实史实、底本权威性、古音、流派划分或文学解释；这些需人工核查原始来源。
 
 扩展脚本以160首基线为输入，写入500首目标；脚本已加入重复运行保护和标注范围规范化。后续更新先另存版本/备份，再同步字典与schema。sources/（如有同步项目参考）只读。
+
+## 网站源码
+
+唐诗可视化网页位于 [website/](website/)。使用 React、TypeScript 和 Vite；数据表仍保留在仓库根目录的 data/、public_data/。
+
+本地预览（Node.js 与 npm）：
+
+```powershell
+cd website
+npm ci
+npm run dev
+```
+
+构建与检查：
+
+```powershell
+cd website
+npm test
+npm run build
+```
+
+构建结果位于 website/dist/。GitHub Pages 部署尚未启用；部署前需配置仓库子路径和页面刷新时的路由处理。
+

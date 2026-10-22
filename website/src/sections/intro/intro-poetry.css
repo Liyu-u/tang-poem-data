@@ -1,0 +1,166 @@
+.intro-section.intro-section--hero {
+  --hero-script-font: '华文行楷', 'STXingkai', 'KaiTi', '楷体', 'STKaiti', cursive;
+}
+
+.intro-section.intro-section--hero .intro-section__figure-label {
+  padding: 0.5rem 0.32rem 0.6rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cinnabar-deep);
+  font-family: var(--hero-script-font);
+  font-size: clamp(1.1rem, 1.65vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  text-shadow: 0 1px 3px var(--paper);
+  transition: color 350ms ease, transform 400ms ease;
+}
+
+.intro-section.intro-section--hero .intro-section__figure-label.is-active {
+  color: #bd403b;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.intro-section.intro-section--hero .intro-section__quote p {
+  font-family: var(--hero-script-font);
+  font-size: clamp(1.4rem, 2.1vw, 2rem);
+  letter-spacing: 0.1em;
+}
+
+.intro-section.intro-section--hero .intro-section__quote {
+  transition: opacity 1800ms ease;
+}
+
+.intro-section.intro-section--hero .intro-section__quote.is-active {
+  /* Only the static tagline fades here; representative verses are vertical. */
+  opacity: 0;
+}
+
+.intro-section__poetry-field {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 2000ms ease-in-out;
+  /* The marked area guides placement, not clipping; long verses stay intact. */
+}
+
+.intro-section__poetry-field.is-leaving {
+  opacity: 0;
+}
+
+.intro-section__verse {
+  position: absolute;
+  max-width: 26ch;
+  color: #963e38;
+  font-family: var(--hero-script-font);
+  font-size: clamp(1.45rem, 2.35vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transform: rotate(var(--verse-tilt));
+  animation: hero-verse-appear 2100ms ease-in-out var(--verse-delay) both;
+}
+
+.intro-section__verse.is-vertical {
+  writing-mode: vertical-rl;
+}
+
+.intro-section__verse-text {
+  display: inline-block;
+  line-height: 1.1;
+  white-space: nowrap;
+  animation: hero-verse-float var(--verse-duration) ease-in-out var(--verse-delay) infinite alternate;
+}
+
+.intro-section__verse-source {
+  display: block;
+  margin: 0.6em 0 0;
+  font-family: 'KaiTi', '楷体', serif;
+  font-size: 0.46em;
+  letter-spacing: 0.16em;
+}
+
+.intro-section__verse.is-vertical .intro-section__verse-source {
+  margin: 0 0.4em 0 0;
+}
+
+@keyframes hero-verse-appear {
+  from { opacity: 0; transform: translate3d(7px, 10px, 0) rotate(var(--verse-tilt)); }
+  to { opacity: 0.82; transform: translate3d(0, 0, 0) rotate(var(--verse-tilt)); }
+}
+
+.intro-section__verse-dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: #ef514b;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1800ms ease-out, opacity 1900ms ease;
+}
+
+.intro-section__poetry-field.is-leaving .intro-section__verse-dust {
+  opacity: 0;
+  transform: translate3d(12px, -16px, 0);
+}
+
+.intro-section__verse-particle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 2px 0.4px rgb(239 81 75 / 50%);
+  opacity: 0;
+  animation: hero-ink-dust var(--dust-duration) cubic-bezier(0.2, 0.65, 0.3, 1) var(--dust-delay) 1 both;
+}
+
+.intro-section__verse-particle:nth-child(even) {
+  width: 1.6px;
+  height: 1.6px;
+}
+
+.intro-section__poetry-field.is-leaving .intro-section__verse-particle {
+  animation-name: hero-ink-dust-exit;
+  animation-delay: var(--dust-exit-delay);
+}
+
+@keyframes hero-ink-dust {
+  0% { opacity: 0; transform: translate3d(0, 5px, 0) scale(0.3); }
+  12% { opacity: 1; transform: translate3d(calc(var(--dust-x) * 0.22), calc(var(--dust-y) * 0.22), 0) scale(1); }
+  60% { opacity: 0.65; transform: translate3d(calc(var(--dust-x) * 0.72), calc(var(--dust-y) * 0.72), 0) scale(0.8); }
+  100% { opacity: 0; transform: translate3d(var(--dust-x), var(--dust-y), 0) scale(0.2); }
+}
+
+@keyframes hero-ink-dust-exit {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0.4); }
+  12% { opacity: 1; transform: translate3d(calc(var(--dust-x) * 0.25), calc(var(--dust-y) * 0.25), 0) scale(1); }
+  60% { opacity: 0.65; transform: translate3d(calc(var(--dust-x) * 0.75), calc(var(--dust-y) * 0.75), 0) scale(0.8); }
+  100% { opacity: 0; transform: translate3d(var(--dust-x), var(--dust-y), 0) scale(0.1); }
+}
+
+@keyframes hero-verse-float {
+  from { transform: translate3d(0, 0, 0) rotate(-0.4deg); }
+  to { transform: translate3d(5px, -9px, 0) rotate(0.6deg); }
+}
+
+@media (max-width: 800px) {
+  .intro-section__verse { font-size: 1.3rem; }
+  .intro-section.intro-section--hero .intro-section__figure-label { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-section__verse,
+  .intro-section__verse-text {
+    animation: none;
+  }
+  .intro-section__verse { opacity: 0.82; }
+  .intro-section__verse-dust { display: none; }
+}
