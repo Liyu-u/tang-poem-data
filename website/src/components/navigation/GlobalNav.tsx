@@ -38,7 +38,7 @@ export function GlobalNav({ activeSection, onNavigate }: GlobalNavProps) {
 
   return (
     <header ref={header} className="global-nav" data-section={activeSection}>
-      <a className="global-nav__brand" href="/#intro" aria-label="诗映大唐" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, '', '#intro'); setMenuOpen(false); onNavigate('intro'); }}>
+      <a className="global-nav__brand" href={`${import.meta.env.BASE_URL}#intro`} aria-label="诗映大唐" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, '', '#intro'); setMenuOpen(false); onNavigate('intro'); }}>
         {logoFailed ? <span className="global-nav__brand-fallback">诗映大唐</span> : <img src={logo} alt="诗映大唐" width="112" height="68" onError={() => setLogoFailed(true)} />}
       </a>
       <nav id="chapter-navigation" aria-label="章节导航" data-open={menuOpen}>
@@ -52,7 +52,7 @@ export function GlobalNav({ activeSection, onNavigate }: GlobalNavProps) {
               </a>
             </li>
           ))}
-          <li><a href="/acknowledgements">鸣谢</a></li>
+          <li><a href={`${import.meta.env.BASE_URL}acknowledgements`}>鸣谢</a></li>
         </ul>
       </nav>
       <div className="global-nav__actions">
@@ -63,3 +63,5 @@ export function GlobalNav({ activeSection, onNavigate }: GlobalNavProps) {
     </header>
   );
 }
+
+

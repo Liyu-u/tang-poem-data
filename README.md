@@ -154,5 +154,5 @@ npm test
 npm run build
 ```
 
-构建结果位于 website/dist/。GitHub Pages 部署尚未启用；部署前需配置仓库子路径和页面刷新时的路由处理。
+构建结果位于 website/dist/。推送到 `main` 后，GitHub Actions 会构建并发布网站到 [GitHub Pages](https://Liyu-u.github.io/tang-poem-data/)；也可在 Actions 中手动运行部署工作流。首页章节使用 `#` 定位；独立页面通过 `404.html` 在 GitHub Pages 上支持直接打开与刷新。
 
