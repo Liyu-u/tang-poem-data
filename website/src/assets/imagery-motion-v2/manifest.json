@@ -1,0 +1,1159 @@
+{
+  "canvas": [
+    1188,
+    1324
+  ],
+  "scenes": {
+    "mountain": {
+      "layers": [
+        {
+          "file": "mountain-original-fog-1.png",
+          "x": 109,
+          "y": 231,
+          "width": 168,
+          "height": 46,
+          "id": "original-fog-1",
+          "kind": "mist",
+          "pivot": [
+            168.7270142180095,
+            248.97345971563982
+          ],
+          "strength": 14,
+          "phase": 0.0,
+          "mesh": [
+            16,
+            4
+          ]
+        },
+        {
+          "file": "mountain-original-fog-2.png",
+          "x": 286,
+          "y": 238,
+          "width": 195,
+          "height": 40,
+          "id": "original-fog-2",
+          "kind": "mist",
+          "pivot": [
+            360.947465437788,
+            260.5018433179724
+          ],
+          "strength": 14,
+          "phase": 1.9,
+          "mesh": [
+            16,
+            4
+          ]
+        },
+        {
+          "file": "mountain-original-fog-3.png",
+          "x": 526,
+          "y": 252,
+          "width": 268,
+          "height": 32,
+          "id": "original-fog-3",
+          "kind": "mist",
+          "pivot": [
+            666.0825787758058,
+            270.20862006519377
+          ],
+          "strength": 14,
+          "phase": 3.8,
+          "mesh": [
+            16,
+            4
+          ]
+        }
+      ],
+      "plate": {
+        "file": "mountain-plate.png",
+        "x": 106,
+        "y": 228,
+        "width": 691,
+        "height": 59
+      }
+    },
+    "wind": {
+      "layers": [
+        {
+          "file": "wind-willow-left.png",
+          "x": 103,
+          "y": 222,
+          "width": 185,
+          "height": 164,
+          "id": "willow-left",
+          "kind": "bend",
+          "pivot": [
+            125,
+            358
+          ],
+          "strength": 38,
+          "phase": 0,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "wind-willow-right.png",
+          "x": 377,
+          "y": 221,
+          "width": 198,
+          "height": 169,
+          "id": "willow-right",
+          "kind": "bend",
+          "pivot": [
+            418,
+            352
+          ],
+          "strength": 36,
+          "phase": 1.4,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "wind-reeds-1.png",
+          "x": 277,
+          "y": 271,
+          "width": 105,
+          "height": 75,
+          "id": "reeds-1",
+          "kind": "bend",
+          "pivot": [
+            309,
+            343
+          ],
+          "strength": 29,
+          "phase": 2.0,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "wind-reeds-2.png",
+          "x": 572,
+          "y": 292,
+          "width": 120,
+          "height": 75,
+          "id": "reeds-2",
+          "kind": "bend",
+          "pivot": [
+            590,
+            354
+          ],
+          "strength": 30,
+          "phase": 2.8,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "wind-reeds-3.png",
+          "x": 668,
+          "y": 316,
+          "width": 119,
+          "height": 75,
+          "id": "reeds-3",
+          "kind": "bend",
+          "pivot": [
+            702,
+            379
+          ],
+          "strength": 31,
+          "phase": 3.6,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "wind-reeds-4.png",
+          "x": 777,
+          "y": 338,
+          "width": 76,
+          "height": 58,
+          "id": "reeds-4",
+          "kind": "bend",
+          "pivot": [
+            789,
+            391
+          ],
+          "strength": 32,
+          "phase": 4.4,
+          "mesh": [
+            12,
+            14
+          ]
+        }
+      ],
+      "plate": {
+        "file": "wind-plate.png",
+        "x": 100,
+        "y": 218,
+        "width": 756,
+        "height": 181
+      }
+    },
+    "sun": {
+      "layers": [],
+      "light": {
+        "file": "sun-cloud-light.png",
+        "x": 104,
+        "y": 356,
+        "width": 922,
+        "height": 115
+      }
+    },
+    "cloud": {
+      "layers": [
+        {
+          "file": "cloud-cloud-bank-1.png",
+          "x": 104,
+          "y": 422,
+          "width": 179,
+          "height": 131,
+          "id": "cloud-bank-1",
+          "kind": "cloud",
+          "pivot": [
+            187.4981026233295,
+            492.2104713193642
+          ],
+          "strength": 16,
+          "phase": 0.0,
+          "mesh": [
+            18,
+            6
+          ]
+        },
+        {
+          "file": "cloud-cloud-bank-2.png",
+          "x": 268,
+          "y": 461,
+          "width": 262,
+          "height": 121,
+          "id": "cloud-bank-2",
+          "kind": "cloud",
+          "pivot": [
+            406.3287208542166,
+            520.9640989322293
+          ],
+          "strength": 15,
+          "phase": 2.1,
+          "mesh": [
+            18,
+            6
+          ]
+        }
+      ],
+      "plate": {
+        "file": "cloud-plate.png",
+        "x": 101,
+        "y": 419,
+        "width": 432,
+        "height": 166
+      }
+    },
+    "sky": {
+      "layers": [
+        {
+          "file": "sky-goose-1.png",
+          "x": 541,
+          "y": 596,
+          "width": 23,
+          "height": 9,
+          "id": "goose-1",
+          "kind": "bird",
+          "pivot": [
+            552.1315789473684,
+            599.6447368421053
+          ],
+          "strength": 38,
+          "phase": 0.0
+        },
+        {
+          "file": "sky-goose-2.png",
+          "x": 593,
+          "y": 597,
+          "width": 22,
+          "height": 9,
+          "id": "goose-2",
+          "kind": "bird",
+          "pivot": [
+            604.0285714285715,
+            600.8285714285714
+          ],
+          "strength": 38,
+          "phase": 0.83
+        },
+        {
+          "file": "sky-goose-3.png",
+          "x": 640,
+          "y": 605,
+          "width": 21,
+          "height": 9,
+          "id": "goose-3",
+          "kind": "bird",
+          "pivot": [
+            650.1891891891892,
+            609.0135135135135
+          ],
+          "strength": 38,
+          "phase": 1.66
+        },
+        {
+          "file": "sky-goose-4.png",
+          "x": 701,
+          "y": 603,
+          "width": 20,
+          "height": 9,
+          "id": "goose-4",
+          "kind": "bird",
+          "pivot": [
+            710.4794520547945,
+            607.1643835616438
+          ],
+          "strength": 38,
+          "phase": 2.4899999999999998
+        },
+        {
+          "file": "sky-goose-5.png",
+          "x": 728,
+          "y": 618,
+          "width": 18,
+          "height": 9,
+          "id": "goose-5",
+          "kind": "bird",
+          "pivot": [
+            736.8888888888889,
+            622.2037037037037
+          ],
+          "strength": 38,
+          "phase": 3.32
+        },
+        {
+          "file": "sky-goose-6.png",
+          "x": 761,
+          "y": 625,
+          "width": 18,
+          "height": 9,
+          "id": "goose-6",
+          "kind": "bird",
+          "pivot": [
+            769.4912280701755,
+            629.2280701754386
+          ],
+          "strength": 38,
+          "phase": 4.1499999999999995
+        },
+        {
+          "file": "sky-goose-7.png",
+          "x": 790,
+          "y": 635,
+          "width": 13,
+          "height": 7,
+          "id": "goose-7",
+          "kind": "bird",
+          "pivot": [
+            796.2432432432432,
+            638.0540540540541
+          ],
+          "strength": 38,
+          "phase": 4.9799999999999995
+        }
+      ],
+      "plate": {
+        "file": "sky-plate.png",
+        "x": 538,
+        "y": 593,
+        "width": 268,
+        "height": 52
+      }
+    },
+    "flower": {
+      "layers": [
+        {
+          "file": "flower-blossom-01.png",
+          "x": 117,
+          "y": 620,
+          "width": 5,
+          "height": 4,
+          "id": "blossom-01",
+          "kind": "bloom",
+          "pivot": [
+            119.28571428571429,
+            621.1428571428571
+          ],
+          "strength": 7,
+          "phase": 0.0
+        },
+        {
+          "file": "flower-blossom-02.png",
+          "x": 144,
+          "y": 620,
+          "width": 5,
+          "height": 7,
+          "id": "blossom-02",
+          "kind": "bloom",
+          "pivot": [
+            146.30769230769232,
+            623.5384615384615
+          ],
+          "strength": 7,
+          "phase": 0.61
+        },
+        {
+          "file": "flower-blossom-03.png",
+          "x": 194,
+          "y": 591,
+          "width": 8,
+          "height": 17,
+          "id": "blossom-03",
+          "kind": "bloom",
+          "pivot": [
+            197.74137931034483,
+            599.3275862068965
+          ],
+          "strength": 7,
+          "phase": 1.22
+        },
+        {
+          "file": "flower-blossom-04.png",
+          "x": 211,
+          "y": 596,
+          "width": 13,
+          "height": 22,
+          "id": "blossom-04",
+          "kind": "bloom",
+          "pivot": [
+            215.6734693877551,
+            608.8775510204082
+          ],
+          "strength": 7,
+          "phase": 1.83
+        },
+        {
+          "file": "flower-blossom-05.png",
+          "x": 223,
+          "y": 613,
+          "width": 29,
+          "height": 29,
+          "id": "blossom-05",
+          "kind": "bloom",
+          "pivot": [
+            235.32579185520362,
+            626.9524886877828
+          ],
+          "strength": 7,
+          "phase": 2.44
+        },
+        {
+          "file": "flower-blossom-06.png",
+          "x": 226,
+          "y": 591,
+          "width": 8,
+          "height": 13,
+          "id": "blossom-06",
+          "kind": "bloom",
+          "pivot": [
+            228.2972972972973,
+            597.7567567567568
+          ],
+          "strength": 7,
+          "phase": 3.05
+        },
+        {
+          "file": "flower-blossom-07.png",
+          "x": 202,
+          "y": 574,
+          "width": 6,
+          "height": 18,
+          "id": "blossom-07",
+          "kind": "bloom",
+          "pivot": [
+            204.22641509433961,
+            582.2830188679245
+          ],
+          "strength": 7,
+          "phase": 3.66
+        },
+        {
+          "file": "flower-blossom-08.png",
+          "x": 296,
+          "y": 624,
+          "width": 12,
+          "height": 23,
+          "id": "blossom-08",
+          "kind": "bloom",
+          "pivot": [
+            301.02197802197804,
+            637.6703296703297
+          ],
+          "strength": 7,
+          "phase": 4.27
+        },
+        {
+          "file": "flower-blossom-09.png",
+          "x": 337,
+          "y": 645,
+          "width": 5,
+          "height": 6,
+          "id": "blossom-09",
+          "kind": "bloom",
+          "pivot": [
+            338.8,
+            647.9333333333333
+          ],
+          "strength": 7,
+          "phase": 4.88
+        },
+        {
+          "file": "flower-blossom-10.png",
+          "x": 323,
+          "y": 620,
+          "width": 33,
+          "height": 20,
+          "id": "blossom-10",
+          "kind": "bloom",
+          "pivot": [
+            339.2237442922374,
+            628.8082191780821
+          ],
+          "strength": 7,
+          "phase": 5.49
+        },
+        {
+          "file": "flower-blossom-11.png",
+          "x": 374,
+          "y": 623,
+          "width": 4,
+          "height": 3,
+          "id": "blossom-11",
+          "kind": "bloom",
+          "pivot": [
+            375.5,
+            623.8
+          ],
+          "strength": 7,
+          "phase": 6.1
+        },
+        {
+          "file": "flower-blossom-12.png",
+          "x": 412,
+          "y": 609,
+          "width": 11,
+          "height": 32,
+          "id": "blossom-12",
+          "kind": "bloom",
+          "pivot": [
+            416.58490566037733,
+            626.5566037735849
+          ],
+          "strength": 7,
+          "phase": 6.71
+        },
+        {
+          "file": "flower-blossom-13.png",
+          "x": 443,
+          "y": 627,
+          "width": 8,
+          "height": 10,
+          "id": "blossom-13",
+          "kind": "bloom",
+          "pivot": [
+            446.5090909090909,
+            631.1272727272727
+          ],
+          "strength": 7,
+          "phase": 7.32
+        },
+        {
+          "file": "flower-blossom-14.png",
+          "x": 486,
+          "y": 653,
+          "width": 7,
+          "height": 11,
+          "id": "blossom-14",
+          "kind": "bloom",
+          "pivot": [
+            488.6666666666667,
+            658.5128205128206
+          ],
+          "strength": 7,
+          "phase": 7.93
+        },
+        {
+          "file": "flower-blossom-15.png",
+          "x": 452,
+          "y": 776,
+          "width": 9,
+          "height": 15,
+          "id": "blossom-15",
+          "kind": "bloom",
+          "pivot": [
+            456.5483870967742,
+            781.9032258064516
+          ],
+          "strength": 7,
+          "phase": 8.54
+        },
+        {
+          "file": "flower-blossom-16.png",
+          "x": 537,
+          "y": 654,
+          "width": 5,
+          "height": 4,
+          "id": "blossom-16",
+          "kind": "bloom",
+          "pivot": [
+            539.4,
+            655.6
+          ],
+          "strength": 7,
+          "phase": 9.15
+        },
+        {
+          "file": "flower-blossom-17.png",
+          "x": 543,
+          "y": 651,
+          "width": 5,
+          "height": 5,
+          "id": "blossom-17",
+          "kind": "bloom",
+          "pivot": [
+            544.9166666666666,
+            653.1666666666666
+          ],
+          "strength": 7,
+          "phase": 9.76
+        },
+        {
+          "file": "flower-blossom-18.png",
+          "x": 609,
+          "y": 665,
+          "width": 4,
+          "height": 3,
+          "id": "blossom-18",
+          "kind": "bloom",
+          "pivot": [
+            610.5,
+            665.9
+          ],
+          "strength": 7,
+          "phase": 10.37
+        },
+        {
+          "file": "flower-blossom-19.png",
+          "x": 656,
+          "y": 709,
+          "width": 12,
+          "height": 9,
+          "id": "blossom-19",
+          "kind": "bloom",
+          "pivot": [
+            661.6973684210526,
+            713.2105263157895
+          ],
+          "strength": 7,
+          "phase": 10.98
+        },
+        {
+          "file": "flower-blossom-20.png",
+          "x": 694,
+          "y": 658,
+          "width": 6,
+          "height": 7,
+          "id": "blossom-20",
+          "kind": "bloom",
+          "pivot": [
+            696.1538461538462,
+            661.3076923076923
+          ],
+          "strength": 7,
+          "phase": 11.59
+        }
+      ],
+      "plate": {
+        "file": "flower-plate.png",
+        "x": 114,
+        "y": 571,
+        "width": 589,
+        "height": 223
+      },
+      "petals": [
+        {
+          "file": "flower-petal-1.png",
+          "x": 213,
+          "y": 605,
+          "width": 10,
+          "height": 12
+        },
+        {
+          "file": "flower-petal-2.png",
+          "x": 444,
+          "y": 627,
+          "width": 6,
+          "height": 10
+        },
+        {
+          "file": "flower-petal-3.png",
+          "x": 194,
+          "y": 697,
+          "width": 8,
+          "height": 6
+        },
+        {
+          "file": "flower-petal-4.png",
+          "x": 196,
+          "y": 683,
+          "width": 12,
+          "height": 11
+        },
+        {
+          "file": "flower-petal-5.png",
+          "x": 308,
+          "y": 611,
+          "width": 6,
+          "height": 11
+        },
+        {
+          "file": "flower-petal-6.png",
+          "x": 296,
+          "y": 624,
+          "width": 3,
+          "height": 5
+        }
+      ]
+    },
+    "water": {
+      "layers": [
+        {
+          "file": "water-boat-reflection.png",
+          "x": 551,
+          "y": 865,
+          "width": 56,
+          "height": 35,
+          "id": "boat-reflection",
+          "kind": "reflection",
+          "pivot": [
+            581,
+            866
+          ],
+          "strength": 46,
+          "phase": 0
+        },
+        {
+          "file": "water-water-willow-left.png",
+          "x": 142,
+          "y": 730,
+          "width": 113,
+          "height": 103,
+          "id": "water-willow-left",
+          "kind": "bend",
+          "pivot": [
+            185,
+            831
+          ],
+          "strength": 26,
+          "phase": 0,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "water-water-willow-middle.png",
+          "x": 238,
+          "y": 748,
+          "width": 97,
+          "height": 103,
+          "id": "water-willow-middle",
+          "kind": "bend",
+          "pivot": [
+            252,
+            839
+          ],
+          "strength": 25,
+          "phase": 1.3,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "water-water-willow-right.png",
+          "x": 366,
+          "y": 750,
+          "width": 97,
+          "height": 90,
+          "id": "water-willow-right",
+          "kind": "bend",
+          "pivot": [
+            393,
+            832
+          ],
+          "strength": 24,
+          "phase": 2.1,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "water-sailing-boat.png",
+          "x": 547,
+          "y": 806,
+          "width": 64,
+          "height": 60,
+          "id": "sailing-boat",
+          "kind": "boat",
+          "pivot": [
+            581,
+            857
+          ],
+          "strength": 46,
+          "phase": 0
+        }
+      ],
+      "plate": {
+        "file": "water-plate.png",
+        "x": 139,
+        "y": 727,
+        "width": 475,
+        "height": 176
+      }
+    },
+    "moon": {
+      "layers": [
+        {
+          "file": "moon-moon-water.png",
+          "x": 104,
+          "y": 950,
+          "width": 619,
+          "height": 58,
+          "id": "moon-water",
+          "kind": "water",
+          "pivot": [
+            365,
+            978
+          ],
+          "strength": 1,
+          "phase": 0,
+          "mesh": [
+            18,
+            4
+          ]
+        }
+      ],
+      "plate": {
+        "file": "moon-plate.png",
+        "x": 101,
+        "y": 947,
+        "width": 625,
+        "height": 64
+      },
+      "light": {
+        "file": "moon-cloud-light.png",
+        "x": 105,
+        "y": 856,
+        "width": 689,
+        "height": 110
+      }
+    },
+    "spring": {
+      "layers": [
+        {
+          "file": "spring-spring-willow-left.png",
+          "x": 104,
+          "y": 983,
+          "width": 66,
+          "height": 87,
+          "id": "spring-willow-left",
+          "kind": "bend",
+          "pivot": [
+            114,
+            1069
+          ],
+          "strength": 18,
+          "phase": 0,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "spring-spring-willow-middle.png",
+          "x": 162,
+          "y": 976,
+          "width": 107,
+          "height": 103,
+          "id": "spring-willow-middle",
+          "kind": "bend",
+          "pivot": [
+            189,
+            1076
+          ],
+          "strength": 21,
+          "phase": 1.5,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "spring-spring-willow-right.png",
+          "x": 473,
+          "y": 1000,
+          "width": 121,
+          "height": 100,
+          "id": "spring-willow-right",
+          "kind": "bend",
+          "pivot": [
+            514,
+            1097
+          ],
+          "strength": 23,
+          "phase": 2.2,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "spring-spring-blossom-2.png",
+          "x": 244,
+          "y": 979,
+          "width": 23,
+          "height": 23,
+          "id": "spring-blossom-2",
+          "kind": "bloom",
+          "pivot": [
+            254.874251497006,
+            990.5269461077844
+          ],
+          "strength": 5,
+          "phase": 0.91
+        },
+        {
+          "file": "spring-spring-blossom-3.png",
+          "x": 338,
+          "y": 1015,
+          "width": 7,
+          "height": 3,
+          "id": "spring-blossom-3",
+          "kind": "bloom",
+          "pivot": [
+            340.5833333333333,
+            1016.1666666666666
+          ],
+          "strength": 5,
+          "phase": 1.82
+        },
+        {
+          "file": "spring-spring-blossom-4.png",
+          "x": 434,
+          "y": 1067,
+          "width": 2,
+          "height": 6,
+          "id": "spring-blossom-4",
+          "kind": "bloom",
+          "pivot": [
+            434.6,
+            1069.3
+          ],
+          "strength": 5,
+          "phase": 2.73
+        },
+        {
+          "file": "spring-spring-blossom-5.png",
+          "x": 617,
+          "y": 1048,
+          "width": 9,
+          "height": 6,
+          "id": "spring-blossom-5",
+          "kind": "bloom",
+          "pivot": [
+            621.7837837837837,
+            1051.027027027027
+          ],
+          "strength": 5,
+          "phase": 3.64
+        },
+        {
+          "file": "spring-spring-blossom-6.png",
+          "x": 637,
+          "y": 1060,
+          "width": 16,
+          "height": 11,
+          "id": "spring-blossom-6",
+          "kind": "bloom",
+          "pivot": [
+            645.04,
+            1066.0
+          ],
+          "strength": 5,
+          "phase": 4.55
+        }
+      ],
+      "plate": {
+        "file": "spring-plate.png",
+        "x": 101,
+        "y": 973,
+        "width": 555,
+        "height": 130
+      },
+      "petals": [
+        {
+          "file": "spring-petal-1.png",
+          "x": 624,
+          "y": 1033,
+          "width": 8,
+          "height": 12
+        },
+        {
+          "file": "spring-petal-2.png",
+          "x": 540,
+          "y": 1070,
+          "width": 7,
+          "height": 10
+        },
+        {
+          "file": "spring-petal-3.png",
+          "x": 616,
+          "y": 1038,
+          "width": 8,
+          "height": 8
+        },
+        {
+          "file": "spring-petal-4.png",
+          "x": 521,
+          "y": 1070,
+          "width": 13,
+          "height": 8
+        },
+        {
+          "file": "spring-petal-5.png",
+          "x": 345,
+          "y": 1025,
+          "width": 6,
+          "height": 9
+        },
+        {
+          "file": "spring-petal-6.png",
+          "x": 651,
+          "y": 1053,
+          "width": 8,
+          "height": 7
+        }
+      ]
+    },
+    "autumn": {
+      "layers": [
+        {
+          "file": "autumn-wheat-1.png",
+          "x": 104,
+          "y": 1083,
+          "width": 83,
+          "height": 103,
+          "id": "wheat-1",
+          "kind": "bend",
+          "pivot": [
+            114,
+            1188
+          ],
+          "strength": 29.0,
+          "phase": 0.0,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "autumn-wheat-2.png",
+          "x": 138,
+          "y": 1091,
+          "width": 100,
+          "height": 106,
+          "id": "wheat-2",
+          "kind": "bend",
+          "pivot": [
+            157,
+            1197
+          ],
+          "strength": 29.8,
+          "phase": 0.72,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "autumn-wheat-3.png",
+          "x": 200,
+          "y": 1103,
+          "width": 68,
+          "height": 96,
+          "id": "wheat-3",
+          "kind": "bend",
+          "pivot": [
+            215,
+            1199
+          ],
+          "strength": 30.6,
+          "phase": 1.44,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "autumn-wheat-4.png",
+          "x": 477,
+          "y": 1114,
+          "width": 50,
+          "height": 82,
+          "id": "wheat-4",
+          "kind": "bend",
+          "pivot": [
+            478,
+            1196
+          ],
+          "strength": 31.4,
+          "phase": 2.16,
+          "mesh": [
+            12,
+            14
+          ]
+        },
+        {
+          "file": "autumn-wheat-5.png",
+          "x": 497,
+          "y": 1143,
+          "width": 75,
+          "height": 58,
+          "id": "wheat-5",
+          "kind": "bend",
+          "pivot": [
+            515,
+            1201
+          ],
+          "strength": 32.2,
+          "phase": 2.88,
+          "mesh": [
+            12,
+            14
+          ]
+        }
+      ],
+      "plate": {
+        "file": "autumn-plate.png",
+        "x": 101,
+        "y": 1080,
+        "width": 474,
+        "height": 124
+      }
+    }
+  }
+}

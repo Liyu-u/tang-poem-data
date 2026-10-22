@@ -1,0 +1,33 @@
+.tang-credits{height:100svh;min-height:460px;overflow:hidden;background:#2c251d;color:#e8d6af;display:flex;flex-direction:column;font-family:var(--font-serif)}
+.tang-credits__header,.tang-credits__footer{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:0 clamp(20px,3.5vw,64px);flex-shrink:0;background-color:#2c251d;background-image:linear-gradient(#211b16d9,#211b16d9),url("../../assets/timeline/verse-paper-grain.png");background-size:auto,320px;background-blend-mode:normal;position:relative;z-index:2}
+.tang-credits__header{height:64px;border-bottom:1px solid #9c7947;box-shadow:0 1px 0 #ddc08b33}
+.tang-credits a{text-decoration:none;text-underline-offset:6px}.tang-credits a:hover{text-decoration:underline}
+.tang-credits__brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.tang-credits__brand img{display:block;width:160px;height:48px;object-fit:contain}
+.tang-credits__brand span{display:inline-block;margin-left:0;color:#b35b42;border:1px solid currentColor;font-size:14px;vertical-align:middle;padding:0 2px}
+.tang-credits__header h1{font-size:14px;font-weight:400;letter-spacing:.35em}.tang-credits__header>a:last-child{font-size:13px;white-space:nowrap}
+.tang-credits__stage{position:relative;flex:1;min-height:0;overflow:hidden;background:#af9266}.tang-credits__viewport{position:relative;z-index:1;width:100%;height:100%;min-height:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;cursor:grab;touch-action:pan-y;overscroll-behavior-x:contain;scroll-behavior:auto}
+.tang-credits__viewport:active{cursor:grabbing}.tang-credits__viewport::-webkit-scrollbar{display:none}
+.tang-credits__scroll{height:100%;width:max(1200vw, 16000px);position:relative;isolation:isolate;background:transparent}
+.tang-credits__art{position:absolute;top:0;left:0;height:100%;width:max-content;display:flex;will-change:transform;pointer-events:none}
+.tang-credits__painting{height:100%;width:auto;max-width:none;object-fit:contain;flex-shrink:0;user-select:none;filter:saturate(.78) brightness(.91)}
+.tang-credits__filters{position:absolute;pointer-events:none}.tang-credits__painting--0{filter:url(#credits-tone-changan) saturate(.78) brightness(.91)}.tang-credits__painting--2{filter:url(#credits-tone-river) saturate(.78) brightness(.91)}
+.tang-credits__painting+.tang-credits__painting{margin-left:-180px;mask-image:linear-gradient(to right,transparent,#000 180px)}
+.tang-credits__scroll::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(to right,transparent 85%,#dfcba5bf 96%),linear-gradient(180deg,#382d2020,transparent 65%,#342b1d12)}
+.tang-credits__poetry{position:absolute;inset:0 0 0 0;pointer-events:none}
+.tang-credits__poem{position:absolute;width:clamp(270px,25vw,390px);color:#fff3d8;text-shadow:0 2px 9px #30291dd9;line-height:1.65}
+.tang-credits__poem h2{font-weight:400;font-size:clamp(34px,3.5vw,56px);line-height:1.2;margin:2px 0 7px;letter-spacing:.08em;text-wrap:balance}
+.tang-credits__poet{font-size:17px;letter-spacing:.24em}.tang-credits__english{font-family:Georgia,serif;font-size:clamp(17px,1.8vw,28px);display:block;max-width:240px;line-height:1.15;margin-bottom:7px}
+.tang-credits__poem p{font-size:clamp(17px,1.45vw,23px);margin:12px 0 0;letter-spacing:.1em}.tang-credits__poem p span{display:block}
+.tang-credits__poem--0{top:13%}.tang-credits__poem--1{top:51%;transform:translateX(-15%)}
+.tang-credits__poem--2{top:19%;writing-mode:vertical-rl;width:auto;height:46%;max-width:330px}.tang-credits__poem--2 .tang-credits__english{writing-mode:horizontal-tb;position:absolute;left:110%;top:5%;width:140px;font-size:23px}.tang-credits__poem--2 h2{font-size:44px;margin:0 15px}.tang-credits__poem--2 p{margin:10px 16px;height:100%}.tang-credits__poem--2 p span{display:inline}
+.tang-credits__poem--3{top:49%}.tang-credits__poem--3 h2{font-size:40px}
+.tang-credits__ending{position:absolute;right:clamp(50px,9vw,180px);top:50%;transform:translateY(-50%);width:440px;color:#342b20;padding:30px 45px;background:transparent}
+.tang-credits__ending h2{font-size:56px;line-height:1.5;letter-spacing:.12em;font-weight:400;margin:12px 0 25px}.tang-credits__ending p{line-height:2.2;letter-spacing:.12em;font-size:18px}
+.tang-credits__seal{color:#913c2c;border:1px solid currentColor;padding:4px;font-size:15px;writing-mode:vertical-rl;letter-spacing:.2em}.tang-credits__thanks{font-size:15px;line-height:1.95;font-weight:500;color:#33291f;margin:25px 0;text-wrap:pretty}.tang-credits__ending a{font-size:16px;font-weight:500;color:#33291f}
+.tang-credits__footer{height:58px;font-size:12px;letter-spacing:.15em;border-top:1px solid #9c7947}.tang-credits__footer>span{white-space:nowrap}
+
+
+.tang-credits__controls{margin-left:auto;display:flex;gap:20px;white-space:nowrap}.tang-credits__controls button{border:0;background:transparent;padding:12px 0;font-size:13px;cursor:pointer;letter-spacing:.12em}.tang-credits__controls button:hover{color:#fff1ce}.tang-credits__controls button+button{position:relative}.tang-credits__controls button+button::before{content:"";position:absolute;height:12px;width:1px;background:#b899654d;left:-10px;top:50%;transform:translateY(-50%)}
+.tang-credits ::selection{background:#913c2c;color:#fff3d8}
+@media(max-width:700px){.tang-credits__header{height:58px;gap:12px}.tang-credits__header h1{display:none}.tang-credits__brand img{width:150px;height:38px}.tang-credits__scroll{width:16000px}.tang-credits__poem{width:270px}.tang-credits__poem h2{font-size:38px}.tang-credits__poem p{font-size:18px}.tang-credits__poem--2 h2{font-size:36px}.tang-credits__footer{height:52px;gap:14px;padding-top:0;padding-bottom:0}.tang-credits__footer>span{display:none}.tang-credits__controls{gap:15px}.tang-credits__ending{right:30px;width:310px;padding:20px}.tang-credits__ending h2{font-size:40px}.tang-credits__ending p{font-size:16px}.tang-credits__thanks{font-size:14px}}
+@media(max-height:650px){.tang-credits__header{height:54px}.tang-credits__footer{height:48px}.tang-credits__ending{padding:18px 30px}.tang-credits__ending h2{font-size:36px;margin:5px 0 10px}.tang-credits__ending p{font-size:14px;margin:8px 0}.tang-credits__thanks{font-size:14px;line-height:1.8;margin:10px 0}.tang-credits__poem h2{font-size:34px}.tang-credits__poem p{font-size:16px}.tang-credits__english{font-size:18px}}

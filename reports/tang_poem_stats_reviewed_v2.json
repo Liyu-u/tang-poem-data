@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "dataset": "tang-poem-data",
+    "version": "pilot-v1-reviewed-scope-after-sentence-migration",
+    "sample_scope": "首批20首精选唐诗；不是全部唐诗总体分布",
+    "poem_count": 20,
+    "poet_count": 13,
+    "annotation_scope": "仅纳入 review_status=approved 的候选行",
+    "reviewer": "Codex辅助复核（非人工双审）",
+    "human_double_review_required": true,
+    "excluded_annotation_counts": {
+      "poem_tags_needs_revision": 3,
+      "poem_imagery_needs_revision": 164,
+      "poem_imagery_rejected": 0,
+      "color_needs_revision": 25,
+      "color_rejected": 0
+    },
+    "theme_unit": "含该主题已通过候选的诗作数；一首诗可多主题",
+    "imagery_unit": "已通过词面候选出现次数与包含该意象候选的诗作数",
+    "color_unit": "已通过颜色词候选出现次数与包含该颜色候选的诗作数"
+  },
+  "theme_distribution": [
+    {
+      "theme": "人生感怀",
+      "poem_count": 3,
+      "annotation_count": 3
+    },
+    {
+      "theme": "咏史怀古",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "山水田园",
+      "poem_count": 4,
+      "annotation_count": 4
+    },
+    {
+      "theme": "思乡怀人",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "政治讽喻",
+      "poem_count": 1,
+      "annotation_count": 1
+    },
+    {
+      "theme": "羁旅",
+      "poem_count": 1,
+      "annotation_count": 1
+    },
+    {
+      "theme": "边塞征战",
+      "poem_count": 3,
+      "annotation_count": 3
+    },
+    {
+      "theme": "送别",
+      "poem_count": 5,
+      "annotation_count": 5
+    }
+  ],
+  "imagery_distribution": [],
+  "color_distribution": [],
+  "imagery_cooccurrence": [],
+  "poet_theme": [
+    {
+      "poet": "刘禹锡",
+      "theme": "咏史怀古",
+      "poem_count": 1
+    },
+    {
+      "poet": "刘长卿",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "孟浩然",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "岑参",
+      "theme": "边塞征战",
+      "poem_count": 1
+    },
+    {
+      "poet": "岑参",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "李商隐",
+      "theme": "思乡怀人",
+      "poem_count": 1
+    },
+    {
+      "poet": "李白",
+      "theme": "思乡怀人",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜牧",
+      "theme": "咏史怀古",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜牧",
+      "theme": "政治讽喻",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜甫",
+      "theme": "人生感怀",
+      "poem_count": 2
+    },
+    {
+      "poet": "杜甫",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜甫",
+      "theme": "羁旅",
+      "poem_count": 1
+    },
+    {
+      "poet": "王昌龄",
+      "theme": "边塞征战",
+      "poem_count": 1
+    },
+    {
+      "poet": "王昌龄",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "王维",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "王维",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "白居易",
+      "theme": "人生感怀",
+      "poem_count": 1
+    },
+    {
+      "poet": "白居易",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "韦应物",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "高适",
+      "theme": "边塞征战",
+      "poem_count": 1
+    }
+  ]
+}

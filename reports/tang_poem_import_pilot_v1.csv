@@ -1,0 +1,21 @@
+selection_rank,legacy_work_id,legacy_author_id,author,title,period,chars,line_count,canonical_source_url,source_record_locator,canonical_review_status,selection_reason,selection_status
+1,W0001,A001,李白,静夜思,唐代,25,2,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=ca2c489a-e433-4c0f-8248-77d354f0665e,待双人复核,短篇与月意象的基础样本,selected_for_pilot
+2,W0250,A001,李白,蜀道難,唐代,358,19,https://github.com/chinese-poetry/chinese-poetry/blob/master/json/tang300.json,candidate_id=cp_tang300:00000122; file=tang300.json;index=122;id=f15c4b50-ee89-4927-8cf3-15e3a6a6ab95,待双人复核,长篇歌行与山川意象样本,selected_for_pilot
+3,W0025,A002,杜甫,春望,唐代,51,4,https://www.pep.com.cn/products/jc/czjks/201802/t20180209_1922717.shtml,id=e9e6425c-6c14-4f69-8694-87a8b96a43de,待双人复核,战争背景与家国情感样本,selected_for_pilot
+4,W0026,A002,杜甫,望岳,唐代,51,4,https://www.pep.com.cn/products/jc/czjks/201802/t20180209_1922680.shtml,id=12fdaad8-b197-4526-b56d-c7c713267248,待双人复核,山岳意象与登临书写样本,selected_for_pilot
+5,W0027,A002,杜甫,登高,唐代,67,4,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=a4d718ee-c020-42b4-97df-499cd0076f7b,待双人复核,秋景羁旅与情感密度样本,selected_for_pilot
+6,W0030,A003,王维,山居秋暝,唐代,51,4,https://v2.ykt.cbern.com.cn/65/document/a72b8b2f5e724f2d9dc044cdd9e7d4a2/pdf.pdf,id=00f12a19-bb96-4980-a4f5-11a1b9d604dd,待双人复核,山水田园与色彩意象样本,selected_for_pilot
+7,W0262,A003,王维,渭城曲,唐代,33,2,https://github.com/chinese-poetry/chinese-poetry/blob/master/json/tang300.json,candidate_id=cp_tang300:00000148; file=tang300.json;index=148;id=1575c835-1241-4d7b-99dc-6d700549ac65,待双人复核,送别空间与短章结构样本,selected_for_pilot
+8,W0037,A004,白居易,赋得古原草送别,唐代,51,4,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=0174cbbc-31fa-4daf-b1cf-7f91c6a646a9,待双人复核,草木意象与送别主题样本,selected_for_pilot
+9,W0036,A004,白居易,琵琶行,唐代,747,44,https://v1.ykt.cbern.com.cn/65/document/7a69755810bb492c9e44f94a213b7e5e/pdf.pdf,id=0fb0189c-8ff3-4106-af94-f6d26d528a1d,待双人复核,长篇叙事与声音情感结构样本,selected_for_pilot
+10,W0040,A005,李商隐,锦瑟,唐代,67,4,https://www.chinawriter.com.cn/n1/2020/0923/c405073-31871727.html,id=e0eb3016-9288-4dc0-9257-3de36e5ad73c,待双人复核,器物意象与多义表达样本,selected_for_pilot
+11,W0041,A005,李商隐,夜雨寄北,唐代,33,2,https://www.chinawriter.com.cn/n1/2020/0923/c405073-31871727.html,id=75db753d-e7da-48a1-a6c0-6ed9147e58db,待双人复核,夜雨与思念情感样本,selected_for_pilot
+12,W0046,A006,杜牧,泊秦淮,唐代,33,2,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=8de30193-fba7-4aef-9ff9-c3726a22104d,待双人复核,水乡空间与咏史讽喻样本,selected_for_pilot
+13,W0050,A007,孟浩然,春晓,唐代,25,2,https://www.pep.com.cn/xw/zt/hd/ywsd/sfsd/1x/201901/t20190103_1935013.shtml,id=cb168b3b-d104-4df7-9868-1e1225ddb941,待双人复核,短篇春景与听觉意象样本,selected_for_pilot
+14,W0055,A008,王昌龄,出塞,唐代,33,2,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=2d0385e7-0c72-423f-a538-f66acc9d4c46,待双人复核,边塞主题与历史循环样本,selected_for_pilot
+15,W0056,A008,王昌龄,芙蓉楼送辛渐,唐代,33,2,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=090b7792-2942-4f3c-a34d-caccd066c76f,待双人复核,送别、地点与色彩意象样本,selected_for_pilot
+16,W0060,A009,岑参,白雪歌送武判官归京,唐代,152,9,https://zh.wikisource.org/w/index.php?title=白雪歌送武判官歸京&oldid=2026203,id=294bc7b2-b4f8-4a53-be17-a40ded4afd1a,待双人复核,边塞气候与长短句节奏样本,selected_for_pilot
+17,W0070,A010,高适,燕歌行,唐代,238,14,https://zh.wikisource.org/w/index.php?title=燕歌行_(高適)&oldid=9703575,id=09788f19-1e11-4394-a543-0edf2cfdcae9,待双人复核,战争叙事与边塞情感样本,selected_for_pilot
+18,W0074,A011,刘禹锡,乌衣巷,唐代,33,2,https://zh.wikisource.org/w/index.php?title=烏衣巷&oldid=2319342,id=4fa92777-9bd6-45ca-9272-bac30459cf5e,待双人复核,历史地名与兴亡意象样本,selected_for_pilot
+19,W0065,A012,韦应物,滁州西涧,唐代,33,2,https://www.pep.com.cn/rjdt/mtbd/202307/t20230718_1984406.shtml,id=0ae0e3bd-a32e-481f-9719-b283da2da964,待双人复核,自然景物与孤寂情绪样本,selected_for_pilot
+20,W0078,A025,刘长卿,送灵澈上人,唐代,25,2,https://zh.wikisource.org/w/index.php?title=送靈澈上人&oldid=1981927,id=a746d1f0-a72c-44d2-8b1c-c5c990749257,待双人复核,送别意象与短篇结构样本,selected_for_pilot

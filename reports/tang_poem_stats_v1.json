@@ -1,0 +1,1719 @@
+{
+  "metadata": {
+    "dataset": "tang-poem-data",
+    "version": "pilot-v1",
+    "sample_scope": "首批20首精选唐诗；不是全部唐诗总体分布",
+    "poem_count": 20,
+    "poet_count": 13,
+    "annotation_status": "exploratory_pending_annotation_review",
+    "theme_unit": "含该主题候选的诗作数；一首诗可多主题",
+    "imagery_unit": "词面候选出现次数与包含该意象候选的诗作数",
+    "color_unit": "颜色词候选出现次数与包含该颜色候选的诗作数"
+  },
+  "theme_distribution": [
+    {
+      "theme": "人生感怀",
+      "poem_count": 4,
+      "annotation_count": 4
+    },
+    {
+      "theme": "咏史怀古",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "山水田园",
+      "poem_count": 4,
+      "annotation_count": 4
+    },
+    {
+      "theme": "思乡怀人",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "政治讽喻",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "羁旅",
+      "poem_count": 2,
+      "annotation_count": 2
+    },
+    {
+      "theme": "边塞征战",
+      "poem_count": 3,
+      "annotation_count": 3
+    },
+    {
+      "theme": "送别",
+      "poem_count": 5,
+      "annotation_count": 5
+    }
+  ],
+  "imagery_distribution": [
+    {
+      "imagery": "山",
+      "category": "山川",
+      "poem_count": 11,
+      "occurrence_count": 16
+    },
+    {
+      "imagery": "月",
+      "category": "天象",
+      "poem_count": 9,
+      "occurrence_count": 15
+    },
+    {
+      "imagery": "江",
+      "category": "山川",
+      "poem_count": 4,
+      "occurrence_count": 11
+    },
+    {
+      "imagery": "春",
+      "category": "季节",
+      "poem_count": 9,
+      "occurrence_count": 10
+    },
+    {
+      "imagery": "城",
+      "category": "建筑",
+      "poem_count": 7,
+      "occurrence_count": 9
+    },
+    {
+      "imagery": "秋",
+      "category": "季节",
+      "poem_count": 5,
+      "occurrence_count": 9
+    },
+    {
+      "imagery": "雨",
+      "category": "气象",
+      "poem_count": 8,
+      "occurrence_count": 9
+    },
+    {
+      "imagery": "花",
+      "category": "草木",
+      "poem_count": 6,
+      "occurrence_count": 8
+    },
+    {
+      "imagery": "酒",
+      "category": "器物",
+      "poem_count": 5,
+      "occurrence_count": 8
+    },
+    {
+      "imagery": "风",
+      "category": "气象",
+      "poem_count": 6,
+      "occurrence_count": 8
+    },
+    {
+      "imagery": "关",
+      "category": "建筑",
+      "poem_count": 5,
+      "occurrence_count": 6
+    },
+    {
+      "imagery": "草",
+      "category": "草木",
+      "poem_count": 6,
+      "occurrence_count": 6
+    },
+    {
+      "imagery": "鸟",
+      "category": "动物",
+      "poem_count": 5,
+      "occurrence_count": 6
+    },
+    {
+      "imagery": "马",
+      "category": "动物",
+      "poem_count": 3,
+      "occurrence_count": 5
+    },
+    {
+      "imagery": "云",
+      "category": "气象",
+      "poem_count": 4,
+      "occurrence_count": 4
+    },
+    {
+      "imagery": "水",
+      "category": "山川",
+      "poem_count": 2,
+      "occurrence_count": 4
+    },
+    {
+      "imagery": "竹",
+      "category": "草木",
+      "poem_count": 3,
+      "occurrence_count": 4
+    },
+    {
+      "imagery": "雪",
+      "category": "气象",
+      "poem_count": 1,
+      "occurrence_count": 4
+    },
+    {
+      "imagery": "日",
+      "category": "天象",
+      "poem_count": 3,
+      "occurrence_count": 3
+    },
+    {
+      "imagery": "猿",
+      "category": "动物",
+      "poem_count": 3,
+      "occurrence_count": 3
+    },
+    {
+      "imagery": "川",
+      "category": "山川",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "imagery": "松",
+      "category": "草木",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "imagery": "舟",
+      "category": "器物",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "imagery": "霜",
+      "category": "气象",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "imagery": "龙",
+      "category": "动物",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "imagery": "剑",
+      "category": "器物",
+      "poem_count": 1,
+      "occurrence_count": 1
+    },
+    {
+      "imagery": "柳",
+      "category": "草木",
+      "poem_count": 1,
+      "occurrence_count": 1
+    },
+    {
+      "imagery": "河",
+      "category": "山川",
+      "poem_count": 1,
+      "occurrence_count": 1
+    },
+    {
+      "imagery": "燕",
+      "category": "动物",
+      "poem_count": 1,
+      "occurrence_count": 1
+    },
+    {
+      "imagery": "虎",
+      "category": "动物",
+      "poem_count": 1,
+      "occurrence_count": 1
+    },
+    {
+      "imagery": "鹤",
+      "category": "动物",
+      "poem_count": 1,
+      "occurrence_count": 1
+    }
+  ],
+  "color_distribution": [
+    {
+      "color": "青色",
+      "poem_count": 5,
+      "occurrence_count": 9
+    },
+    {
+      "color": "白色",
+      "poem_count": 6,
+      "occurrence_count": 6
+    },
+    {
+      "color": "红色",
+      "poem_count": 2,
+      "occurrence_count": 3
+    },
+    {
+      "color": "黄色",
+      "poem_count": 3,
+      "occurrence_count": 3
+    },
+    {
+      "color": "朱红色",
+      "poem_count": 2,
+      "occurrence_count": 2
+    },
+    {
+      "color": "金色",
+      "poem_count": 2,
+      "occurrence_count": 2
+    }
+  ],
+  "imagery_cooccurrence": [
+    {
+      "source": "山",
+      "target": "月",
+      "poem_count": 6
+    },
+    {
+      "source": "关",
+      "target": "城",
+      "poem_count": 5
+    },
+    {
+      "source": "城",
+      "target": "山",
+      "poem_count": 5
+    },
+    {
+      "source": "山",
+      "target": "雨",
+      "poem_count": 5
+    },
+    {
+      "source": "春",
+      "target": "月",
+      "poem_count": 5
+    },
+    {
+      "source": "春",
+      "target": "雨",
+      "poem_count": 5
+    },
+    {
+      "source": "云",
+      "target": "山",
+      "poem_count": 4
+    },
+    {
+      "source": "关",
+      "target": "山",
+      "poem_count": 4
+    },
+    {
+      "source": "城",
+      "target": "春",
+      "poem_count": 4
+    },
+    {
+      "source": "城",
+      "target": "月",
+      "poem_count": 4
+    },
+    {
+      "source": "山",
+      "target": "春",
+      "poem_count": 4
+    },
+    {
+      "source": "山",
+      "target": "秋",
+      "poem_count": 4
+    },
+    {
+      "source": "春",
+      "target": "花",
+      "poem_count": 4
+    },
+    {
+      "source": "春",
+      "target": "草",
+      "poem_count": 4
+    },
+    {
+      "source": "春",
+      "target": "风",
+      "poem_count": 4
+    },
+    {
+      "source": "月",
+      "target": "花",
+      "poem_count": 4
+    },
+    {
+      "source": "秋",
+      "target": "雨",
+      "poem_count": 4
+    },
+    {
+      "source": "关",
+      "target": "月",
+      "poem_count": 3
+    },
+    {
+      "source": "关",
+      "target": "雨",
+      "poem_count": 3
+    },
+    {
+      "source": "城",
+      "target": "草",
+      "poem_count": 3
+    },
+    {
+      "source": "城",
+      "target": "雨",
+      "poem_count": 3
+    },
+    {
+      "source": "城",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "竹",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "花",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "草",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "马",
+      "poem_count": 3
+    },
+    {
+      "source": "山",
+      "target": "鸟",
+      "poem_count": 3
+    },
+    {
+      "source": "春",
+      "target": "酒",
+      "poem_count": 3
+    },
+    {
+      "source": "月",
+      "target": "酒",
+      "poem_count": 3
+    },
+    {
+      "source": "月",
+      "target": "马",
+      "poem_count": 3
+    },
+    {
+      "source": "江",
+      "target": "酒",
+      "poem_count": 3
+    },
+    {
+      "source": "秋",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "花",
+      "target": "草",
+      "poem_count": 3
+    },
+    {
+      "source": "花",
+      "target": "酒",
+      "poem_count": 3
+    },
+    {
+      "source": "花",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "草",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "酒",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "雨",
+      "target": "风",
+      "poem_count": 3
+    },
+    {
+      "source": "云",
+      "target": "关",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "城",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "川",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "日",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "月",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "草",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "风",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "川",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "日",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "春",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "猿",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "风",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "关",
+      "target": "龙",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "川",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "日",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "猿",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "花",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "城",
+      "target": "龙",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "川",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "日",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "松",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "江",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "猿",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "山",
+      "target": "龙",
+      "poem_count": 2
+    },
+    {
+      "source": "川",
+      "target": "日",
+      "poem_count": 2
+    },
+    {
+      "source": "日",
+      "target": "月",
+      "poem_count": 2
+    },
+    {
+      "source": "春",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "春",
+      "target": "竹",
+      "poem_count": 2
+    },
+    {
+      "source": "春",
+      "target": "舟",
+      "poem_count": 2
+    },
+    {
+      "source": "春",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "春",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "松",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "水",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "江",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "猿",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "竹",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "草",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "风",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "月",
+      "target": "龙",
+      "poem_count": 2
+    },
+    {
+      "source": "水",
+      "target": "江",
+      "poem_count": 2
+    },
+    {
+      "source": "水",
+      "target": "花",
+      "poem_count": 2
+    },
+    {
+      "source": "水",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "江",
+      "target": "猿",
+      "poem_count": 2
+    },
+    {
+      "source": "江",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "江",
+      "target": "花",
+      "poem_count": 2
+    },
+    {
+      "source": "江",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "江",
+      "target": "风",
+      "poem_count": 2
+    },
+    {
+      "source": "猿",
+      "target": "秋",
+      "poem_count": 2
+    },
+    {
+      "source": "猿",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "猿",
+      "target": "风",
+      "poem_count": 2
+    },
+    {
+      "source": "猿",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "秋",
+      "target": "竹",
+      "poem_count": 2
+    },
+    {
+      "source": "秋",
+      "target": "酒",
+      "poem_count": 2
+    },
+    {
+      "source": "竹",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "舟",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "花",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "花",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "花",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "草",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "酒",
+      "target": "雨",
+      "poem_count": 2
+    },
+    {
+      "source": "酒",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "风",
+      "target": "马",
+      "poem_count": 2
+    },
+    {
+      "source": "风",
+      "target": "鸟",
+      "poem_count": 2
+    },
+    {
+      "source": "云",
+      "target": "剑",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "春",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "秋",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "酒",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "云",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "剑",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "柳",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "水",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "江",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "关",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "城",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "山",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "川",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "日",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "月",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "剑",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "柳",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "水",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "江",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "河",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "城",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "水",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "河",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "舟",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "山",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "月",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "秋",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "川",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "春",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "秋",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "日",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "松",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "柳",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "水",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "江",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "河",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "春",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "河",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "舟",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "霜",
+      "poem_count": 1
+    },
+    {
+      "source": "月",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "秋",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "舟",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "松",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "柳",
+      "target": "酒",
+      "poem_count": 1
+    },
+    {
+      "source": "柳",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "猿",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "秋",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "水",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "江",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "江",
+      "target": "霜",
+      "poem_count": 1
+    },
+    {
+      "source": "江",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "江",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "河",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "河",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "河",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "燕",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "燕",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "竹",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "虎",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "雨",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "霜",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "猿",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "舟",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "霜",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "秋",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "竹",
+      "target": "舟",
+      "poem_count": 1
+    },
+    {
+      "source": "竹",
+      "target": "花",
+      "poem_count": 1
+    },
+    {
+      "source": "竹",
+      "target": "酒",
+      "poem_count": 1
+    },
+    {
+      "source": "竹",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "竹",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "舟",
+      "target": "草",
+      "poem_count": 1
+    },
+    {
+      "source": "花",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "草",
+      "target": "酒",
+      "poem_count": 1
+    },
+    {
+      "source": "草",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "草",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "草",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "虎",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "虎",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "虎",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "酒",
+      "target": "雪",
+      "poem_count": 1
+    },
+    {
+      "source": "酒",
+      "target": "霜",
+      "poem_count": 1
+    },
+    {
+      "source": "酒",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "雨",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "雨",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "雪",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "雪",
+      "target": "马",
+      "poem_count": 1
+    },
+    {
+      "source": "霜",
+      "target": "风",
+      "poem_count": 1
+    },
+    {
+      "source": "霜",
+      "target": "鸟",
+      "poem_count": 1
+    },
+    {
+      "source": "马",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "鸟",
+      "target": "鹤",
+      "poem_count": 1
+    },
+    {
+      "source": "鸟",
+      "target": "龙",
+      "poem_count": 1
+    },
+    {
+      "source": "鹤",
+      "target": "龙",
+      "poem_count": 1
+    }
+  ],
+  "poet_theme": [
+    {
+      "poet": "刘禹锡",
+      "theme": "咏史怀古",
+      "poem_count": 1
+    },
+    {
+      "poet": "刘长卿",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "孟浩然",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "岑参",
+      "theme": "边塞征战",
+      "poem_count": 1
+    },
+    {
+      "poet": "岑参",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "李商隐",
+      "theme": "人生感怀",
+      "poem_count": 1
+    },
+    {
+      "poet": "李商隐",
+      "theme": "思乡怀人",
+      "poem_count": 1
+    },
+    {
+      "poet": "李商隐",
+      "theme": "羁旅",
+      "poem_count": 1
+    },
+    {
+      "poet": "李白",
+      "theme": "思乡怀人",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜牧",
+      "theme": "咏史怀古",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜牧",
+      "theme": "政治讽喻",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜甫",
+      "theme": "人生感怀",
+      "poem_count": 2
+    },
+    {
+      "poet": "杜甫",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜甫",
+      "theme": "政治讽喻",
+      "poem_count": 1
+    },
+    {
+      "poet": "杜甫",
+      "theme": "羁旅",
+      "poem_count": 1
+    },
+    {
+      "poet": "王昌龄",
+      "theme": "边塞征战",
+      "poem_count": 1
+    },
+    {
+      "poet": "王昌龄",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "王维",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "王维",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "白居易",
+      "theme": "人生感怀",
+      "poem_count": 1
+    },
+    {
+      "poet": "白居易",
+      "theme": "送别",
+      "poem_count": 1
+    },
+    {
+      "poet": "韦应物",
+      "theme": "山水田园",
+      "poem_count": 1
+    },
+    {
+      "poet": "高适",
+      "theme": "边塞征战",
+      "poem_count": 1
+    }
+  ]
+}
