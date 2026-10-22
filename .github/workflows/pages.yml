@@ -36,6 +36,8 @@ jobs:
           cache: npm
           cache-dependency-path: website/package-lock.json
       - run: npm ci
+      # The lockfile was generated on Windows and omits Rollup's Linux binary.
+      - run: npm install --no-save --no-package-lock @rollup/rollup-linux-x64-gnu@4.64.7
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
