@@ -1,6 +1,6 @@
-import relationCsv from "../../../tang-poem-data/data/poet_relations.csv?raw";
-import publicRelationCsv from "../../../tang-poem-data/public_data/relations.csv?raw";
-import publicPoetCsv from "../../../tang-poem-data/public_data/poets.csv?raw";
+import relationCsv from "../../../../data/poet_relations.csv?raw";
+import publicRelationCsv from "../../../../public_data/relations.csv?raw";
+import publicPoetCsv from "../../../../public_data/poets.csv?raw";
 import { starProfile, type StarProfile } from "./starProfiles";
 import type { Dataset, PoetRecord } from "../../types/domain";
 import { researchedRelations, supplementalPoets } from "./supplementalPoets";
@@ -327,3 +327,4 @@ export function projectPoint(
 export function boundedZoom(value: number) {
   return Math.min(1.65, Math.max(0.65, value));
 }
+
