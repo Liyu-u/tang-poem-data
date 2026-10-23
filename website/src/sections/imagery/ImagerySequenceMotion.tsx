@@ -58,7 +58,7 @@ export function ImagerySequenceMotion({ region, leaving = false }: { region: Sce
       if (disposed) return;
       if (!visible || document.hidden || leaving) { if (!movie.paused) movie.pause(); cancelAnimationFrame(frame); frame = 0; return; }
       if (!plateReady || movie.readyState < 2) return;
-      if (movie.ended) { draw(); return; }
+      if (movie.ended) movie.currentTime = 0;
       void movie.play().then(() => { if (!disposed && !frame) frame = requestAnimationFrame(tick); }).catch(() => { /* Keep the static chart if decoding or autoplay fails. */ });
     };
     plate.onload = () => { plateReady = true; draw(); resume(); };
@@ -79,7 +79,8 @@ export function ImagerySequenceMotion({ region, leaving = false }: { region: Sce
   return <g data-animated-scene={region.name} data-paint-renderer="sequence-video" className="imagery-scene-motion" aria-hidden="true" style={{ opacity: leaving ? 0 : 1, transition: 'opacity 400ms ease-out' }}>
     {!reduced && <foreignObject x={0} y={0} width={1188} height={1324}>
       <canvas ref={canvas} width={1188} height={1324} className="imagery-scene-motion__canvas" style={{ opacity: 0, transition: 'opacity 220ms ease-out' }} />
-      <video ref={video} src={url(`${scene.id}${scene.id === 'flower' ? '-detail' : ''}.webm`)} muted playsInline preload="auto" style={{ display: 'none' }} />
+      <video ref={video} src={url(`${scene.id}${scene.id === 'flower' ? '-detail' : ''}.webm`)} muted loop playsInline preload="auto" style={{ display: 'none' }} />
     </foreignObject>}
   </g>;
 }
+

@@ -4,7 +4,7 @@ import {ImageryLandscapeRanking} from './ImageryLandscapeRanking';
 import {imageryChapterContent} from './imageryContent';
 afterEach(()=>{cleanup();vi.unstubAllGlobals()});
 describe('scene video replacement',()=>{
- for(const name of ['山','天','花','水','春']) it(`uses video for ${name}`,()=>{vi.spyOn(HTMLMediaElement.prototype,'play').mockResolvedValue();vi.spyOn(HTMLMediaElement.prototype,'pause').mockImplementation(()=>{});const {container}=render(<ImageryLandscapeRanking content={imageryChapterContent}/>);fireEvent.pointerEnter(screen.getByRole('button',{name:new RegExp('^'+name+'：')}));expect(container.querySelector('[data-animated-scene]')).toHaveAttribute('data-paint-renderer','sequence-video');expect(container.querySelector('video')).toHaveAttribute('playsinline');});
+ for(const name of ['山','天','花','水','春']) it(`uses video for ${name}`,()=>{vi.spyOn(HTMLMediaElement.prototype,'play').mockResolvedValue();vi.spyOn(HTMLMediaElement.prototype,'pause').mockImplementation(()=>{});const {container}=render(<ImageryLandscapeRanking content={imageryChapterContent}/>);fireEvent.pointerEnter(screen.getByRole('button',{name:new RegExp('^'+name+'：')}));expect(container.querySelector('[data-animated-scene]')).toHaveAttribute('data-paint-renderer','sequence-video');expect(container.querySelector('video')).toHaveAttribute('playsinline');expect(container.querySelector('video')).toHaveAttribute('loop');});
  it('preserves the wind renderer',()=>{const {container}=render(<ImageryLandscapeRanking content={imageryChapterContent}/>);fireEvent.pointerEnter(screen.getByRole('button',{name:/^风：/}));expect(container.querySelector('[data-animated-scene]')).toHaveAttribute('data-paint-renderer','layered-canvas')});
 });
 it.each([['花',665,770,781,'flower'],['水',770,875,793,'water']])('protects adjacent painted rows for %s',(name,top,bottom,right,id)=>{
@@ -26,3 +26,4 @@ it.each([['花',665,770,781,'flower'],['水',770,875,793,'water']])('protects ad
  expect(container.querySelector('canvas')).toHaveAttribute('data-ready','true');
  vi.restoreAllMocks();
 });
+
