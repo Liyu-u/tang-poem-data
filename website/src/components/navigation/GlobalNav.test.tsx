@@ -11,7 +11,7 @@ describe('GlobalNav', () => {
     rerender(<GlobalNav activeSection="poets" onNavigate={() => undefined} />);
     expect(screen.getByRole('button', { name: '展开导航' })).toHaveAttribute('aria-expanded', 'false');
     expect(screen.getByRole('banner')).toHaveAttribute('data-section', 'poets');
-    expect(screen.getByRole('link', { name: '诗人江湖' })).toHaveAttribute('aria-current', 'location');
+    expect(screen.getByRole('link', { name: '诗人星河' })).toHaveAttribute('aria-current', 'location');
     expect(screen.getByRole('link', { name: '诗有万象' })).not.toHaveAttribute('aria-current');
   });
   it('renders the four chapter links and points them at section ids', () => {

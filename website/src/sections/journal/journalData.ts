@@ -1,3 +1,4 @@
+import { researchedJournalPoet } from '../../data/researchedContent';
 import baiPortrait from '../../assets/hero-figure-bai-juyi.png';
 import duPortrait from '../../assets/hero-figure-dufu.png';
 import liPortrait from '../../assets/hero-figure-libai-complete.png';
@@ -62,8 +63,9 @@ export const journalPoets: JournalPoet[] = rankedPoets.map(poet => ({
   works: (primaryWorks as Record<string, JournalWork[]>)[poet.id] ?? [],
 }));
 
-function pendingPoet(id: string, name: string, alias = '字号待补充'): JournalPoet {
-  return { id, name, count: 0, dates: '生卒年待补充', alias, school: '资料待补充', description: '诗人资料待上传', quote: '代表诗句待补充', works: [] };
+const extraPortraitFiles = import.meta.glob<string>('../../assets/journal/poet-portraits/*.png', { eager: true, query: '?url', import: 'default' });
+function pendingPoet(id: string, name: string, _alias?: string): JournalPoet {
+  return { ...researchedJournalPoet(id, name), portrait: extraPortraitFiles['../../assets/journal/poet-portraits/' + name + '.png'] }; 
 }
 export const journalExtraPoets = [
   pendingPoet('wang-ji', '王绩'), pendingPoet('wang-bo', '王勃', '字子安'),
@@ -131,3 +133,5 @@ export const journalTimelinePeriods = [
   { id: 'middle', start: 762, end: 827 },
   { id: 'late', start: 827, end: 907 },
 ];
+
+

@@ -89,7 +89,7 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
       <header className="pn-intro">
         <div className="pn-title">
           <p className="pn-kicker">绢本星图</p>
-          <h2 id="poets-title" aria-label="诗人江湖">
+          <h2 id="poets-title" aria-label="诗人星河">
             诗人星河
           </h2>
           <p>循着一束星光，遇见一位诗人。</p>
@@ -189,8 +189,7 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
           <details className="pn-observation-tools">
             <summary>星体观测工具</summary>
             <div className="pn-experiment">
-              <span className="pn-experiment-label">五种星体 · 小规模实验</span>
-              <div role="group" aria-label="五种星体实验">
+              <div role="group" aria-label="星体观察">
                 {experimentNames
                   .filter((name) => poets.some((p) => p.name === name))
                   .map((name) => {
@@ -199,7 +198,7 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
                       <button
                         key={name}
                         type="button"
-                        aria-label={`实验观察${name}`}
+                        aria-label={`观察${name}`}
                         aria-pressed={
                           selection.type === "poet" && poet?.id === target.id
                         }
@@ -213,14 +212,14 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
               <div
                 className="pn-render-switch"
                 role="group"
-                aria-label="星体效果对照"
+                aria-label="星体显示"
               >
                 <button
                   type="button"
                   aria-pressed={!detailedStars}
                   onClick={() => setDetailedStars(false)}
                 >
-                  原始光点
+                  光点
                 </button>
                 <button
                   type="button"
@@ -247,19 +246,12 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
               onSelectRelation={(id) => setSelection({ type: "relation", id })}
               detailedStars={detailedStars}
             />
-            <p className="pn-data-note">
-              {poets.length} 位诗人 · {relations.length} 条关系线索 ·
-              星体为诗风的艺术意象，空间位置不表示历史距离或关系强弱
-            </p>
           </div>
           <aside className="pn-detail" aria-label="诗人江湖详情">
             {relation && from && to ? (
               <>
                 <div className="pn-detail-topline">
                   <span>诗间往来</span>
-                  <span className="pn-review">
-                    {relation.reviewStatus === "approved" ? "已审核" : "待审核"}
-                  </span>
                 </div>
                 <div className="pn-relation-heading">
                   <button type="button" onClick={() => selectPoet(from.id)}>
@@ -293,13 +285,6 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
               <>
                 <div className="pn-detail-topline">
                   <span>人物小传</span>
-                  <span className="pn-review">
-                    {poet.reviewStatus === "approved"
-                      ? "已审核"
-                      : poet.isDemo
-                        ? "示例资料"
-                        : "待审核"}
-                  </span>
                 </div>
                 <div className="pn-person-heading">
                   <div>
@@ -342,6 +327,7 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
                   <p className="pn-biography">
                     {poet.biography || "人物生平资料正在整理。"}
                   </p>
+                  {poet.biographyUrl && <a href={poet.biographyUrl} target="_blank" rel="noreferrer">文献原文</a>}
                 </details>
                 <div className="pn-person-meta">
                   <span>{poet.period}</span>
@@ -403,12 +389,7 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
                           onClick={() => selectRelation(link.id)}
                         >
                           <span>{other?.name}</span>
-                          <small>
-                            {link.label} ·{" "}
-                            {link.reviewStatus === "approved"
-                              ? "已审核"
-                              : "待审核"}
-                          </small>
+                          <small>{link.label}</small>
                         </button>
                       );
                     })
@@ -426,9 +407,6 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
                 )}
               </>
             )}
-            <p className="pn-review-note">
-              关系以本地诗作、文献记录为线索，审核状态随资料保留。
-            </p>
           </aside>
         </>
       ) : (
@@ -437,3 +415,4 @@ export function PoetJianghu({ dataset, onOpenPoem }: Props) {
     </div>
   );
 }
+

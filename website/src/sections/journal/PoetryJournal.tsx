@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import journalCalligraphy from '../../assets/chapter-titles/journal-calligraphy.png';
-import { journalPoets, journalRankingSource } from './journalData';
+import { allJournalPoets, journalPoets, journalRankingSource } from './journalData';
 import { ThemeChart } from './ThemeChart';
 import { PeriodTrend } from './PeriodTrend';
 import { PoetProfile } from './PoetProfile';
@@ -12,7 +12,7 @@ export function PoetryJournal() {
   const [trendPoetId, setTrendPoetId] = useState('');
   const [mode, setMode] = useState<'count' | 'share'>('count');
   const ranking = [...journalPoets].sort((a, b) => b.count - a.count).slice(0, 5);
-  const selectedPoet = journalPoets.find(poet => poet.id === selectedId) ?? journalPoets[0];
+  const selectedPoet = allJournalPoets.find(poet => poet.id === selectedId) ?? journalPoets[0];
   const total = ranking.reduce((sum, poet) => sum + poet.count, 0);
   const max = Math.max(...ranking.map(poet => poet.count), 1);
   return <div className="poetry-journal">
@@ -20,7 +20,7 @@ export function PoetryJournal() {
     <div className="pj-landscape" aria-hidden="true" />
     <header className="pj-title"><h2 id="craft-title"><img className="pj-title-calligraphy" src={journalCalligraphy} alt="诗词日志" width={1024} height={1536} /></h2><span className="pj-title-seal" aria-hidden="true">诗境</span><p>以诗观世 · 以词会友</p></header>
     <div className="pj-layout"><ThemeChart /><div className="pj-right">
-      <PeriodTrend selectedId={trendPoetId} onSelect={setTrendPoetId} />
+      <PeriodTrend selectedId={trendPoetId} onSelect={id => { setTrendPoetId(id); setSelectedId(id); }} />
       <div className="pj-bottom">
         <article className="pj-panel pj-ranking" aria-labelledby="pj-ranking-title"><header className="pj-panel-heading"><h3 id="pj-ranking-title">诗歌收录数量 TOP 5</h3><p>来源：<a href={journalRankingSource.url} target="_blank" rel="noreferrer">汉语典</a> · 按该数据库收录口径统计</p></header>
           <div className="pj-toggle" aria-label="排行统计方式"><button type="button" aria-pressed={mode === 'count'} onClick={() => setMode('count')}>数量</button><button type="button" aria-pressed={mode === 'share'} onClick={() => setMode('share')}>占比</button></div>
@@ -30,8 +30,8 @@ export function PoetryJournal() {
         <PoetProfile key={selectedPoet.id} poet={selectedPoet} />
       </div>
     </div></div>
-    <footer className="pj-chapter-footer"><span>题材：所提供统计表 · 排行：汉语典 · 分期统计：林庚（1958）</span><span>五人年谱据搜韵系年 · 人物资料附出处 · 画像为艺术示意</span></footer>
   </div>;
 }
+
 
 

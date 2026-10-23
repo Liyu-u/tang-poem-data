@@ -14,8 +14,6 @@ export type ImageryFeature = {
 };
 
 export type ImageryChapterContent = {
-  status: string;
-  sourceNote: string;
   rankingTitle: string;
   unit: string;
   axisMax: number;
@@ -27,8 +25,6 @@ export type ImageryChapterContent = {
 };
 
 export const imageryChapterContent: ImageryChapterContent = {
-  status: '数据来源：imagery_top15.csv',
-  sourceNote: '左侧按原始词频排序；右侧按所提供的类别统计展示，统计口径不同，次数不作直接比较。',
   rankingTitle: '唐诗意象词频前 10 名',
   unit: '次',
   axisMax: 20000,

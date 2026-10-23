@@ -4,3 +4,7 @@ __pycache__/
 reports/workbook_inspection.ndjson
 reports/all_form_patterns.txt
 reports/tang_poem_expansion_backup_v1/
+
+node_modules/
+website/build-run.log
+website/public/output/

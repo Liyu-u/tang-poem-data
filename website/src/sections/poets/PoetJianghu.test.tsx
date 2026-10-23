@@ -13,6 +13,13 @@ import { PoetJianghu } from "./PoetJianghu";
 afterEach(cleanup);
 
 describe("诗人江湖", () => {
+  it("omits the explanatory starfield note", () => {
+    render(
+      <PoetJianghu dataset={tangPoemDataset} onOpenPoem={() => {}} />,
+    );
+    expect(screen.queryByText(/星体为诗风的艺术意象/)).not.toBeInTheDocument();
+  });
+
   it("keeps the relationship network visible while focusing a poet or an evidence link", () => {
     const { container } = render(
       <PoetJianghu dataset={tangPoemDataset} onOpenPoem={() => {}} />,
@@ -157,7 +164,7 @@ describe("诗人江湖", () => {
       bubbles: true,
       cancelable: true,
     });
-    screen.getByRole("heading", { name: "诗人江湖" }).dispatchEvent(outside);
+    screen.getByRole("heading", { name: "诗人星河" }).dispatchEvent(outside);
     expect(outside.defaultPrevented).toBe(false);
     fireEvent.click(screen.getByRole("button", { name: "重置视角" }));
     expect(screen.getByLabelText("图谱缩放比例")).toHaveTextContent("100%");

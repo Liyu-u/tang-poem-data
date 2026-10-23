@@ -1,0 +1,34 @@
+{
+  "sourceSize": [
+    720,
+    720
+  ],
+  "sourceFrames": 361,
+  "fps": 24,
+  "outputSize": [
+    400,
+    400
+  ],
+  "outputFrames": 349,
+  "outputDuration": 14.541666666666666,
+  "sourceCircle": {
+    "cx": 364.0,
+    "cy": 354.0,
+    "radius": 306.0
+  },
+  "svgBounds": {
+    "x": -200,
+    "y": -200,
+    "width": 400,
+    "height": 400
+  },
+  "registration": "shared fixed-rim similarity transform, SIFT + RANSAC, temporal median + Gaussian smoothing",
+  "medianInlierErrorPx": 0.3325192779302597,
+  "maxCameraFrameJumpSourcePx": 0.012422199275501025,
+  "cameraScaleRange": [
+    0.9999889410210867,
+    1.000352615389418
+  ],
+  "loopBlendFrames": 12,
+  "audio": false
+}

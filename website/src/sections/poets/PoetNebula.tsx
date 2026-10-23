@@ -397,7 +397,7 @@ export function PoetNebula({
                     }
                   }}
                 >
-                  <title>{`${from.name}与${to.name} · ${r.label}\n${r.reviewStatus === "approved" ? "已核实" : "待核实线索"}\n${r.evidence}\n来源：${r.sourceLabel}`}</title>
+                  <title>{`${from.name}与${to.name} · ${r.label}\n${r.evidence}\n来源：${r.sourceLabel}`}</title>
                   <path className="pn-link-hit" d={path} />
                   <path
                     className="pn-link-line"
@@ -509,26 +509,13 @@ export function PoetNebula({
             交游 <i />
             文学关联
           </span>
-          <span>虚线 · 待核线索</span>
+          
         </div>
       </div>
       <div className="pn-controls">
         <p id={`${prefix}-instructions`}>
           左键拖拽旋转 · 中键平移 · 滚轮缩放<span>方向键旋转，＋ / − 缩放</span>
         </p>
-        <details className="pn-performance" aria-label="星空运行状态">
-          <summary>运行信息</summary>
-          {fallback ? "静态星图" : `${metrics.particles.toLocaleString()} 粒子`}
-          <span>
-            {fallback
-              ? "兼容模式"
-              : !playing
-                ? "动态已暂停"
-                : metrics.fps
-                  ? `${metrics.fps} FPS`
-                  : "WebGL"}
-          </span>
-        </details>
         <div>
           <button
             className="pn-motion"
@@ -569,3 +556,4 @@ export function PoetNebula({
     </div>
   );
 }
+

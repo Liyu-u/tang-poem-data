@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import type { ImageryChapterContent } from './imageryContent';
 import './imagery-landscape-ranking.css';
 import { ImagerySceneMotion } from './ImagerySceneMotion';
+import { hasSceneVideo, ImagerySequenceMotion } from './ImagerySequenceMotion';
 import { artworkPoint, type ScenePointer } from './sceneMotionRenderer';
 
 const artwork = new URL('../../assets/imagery-ridgeline-paper.png', import.meta.url).href;
@@ -60,7 +61,9 @@ export function ImageryLandscapeRanking({ content }: { content: ImageryChapterCo
         width={1188} height={1324} decoding="async" onError={() => setFailed(true)} />}
       {!failed && <svg className="imagery-landscape-ranking__interactions" viewBox="0 0 1188 1324"
         preserveAspectRatio="xMidYMid meet" role="group" aria-label="意象词频高亮交互">
-        {activeRegion && <ImagerySceneMotion key={activeRegion.name} region={activeRegion} artwork={artwork} pointer={pointer} leaving={!activeName} />}
+        {activeRegion && (hasSceneVideo(activeRegion.name)
+          ? <ImagerySequenceMotion key={activeRegion.name} region={activeRegion} leaving={!activeName} />
+          : <ImagerySceneMotion key={activeRegion.name} region={activeRegion} artwork={artwork} pointer={pointer} leaving={!activeName} />)}
         {regions.map((region) => {
           const item = content.ranking.find((entry) => entry.name === region.name);
           if (!item) return null;

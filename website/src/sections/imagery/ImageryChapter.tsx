@@ -76,12 +76,9 @@ export function ImageryChapter({ content = imageryChapterContent }: Props) {
           ))}
         </div>
       </div>
-
-      <footer className="imagery-chapter__footer">
-        <p>{content.status}<span>{content.sourceNote}</span></p>
-      </footer>
     </>
   );
 }
+
 
 

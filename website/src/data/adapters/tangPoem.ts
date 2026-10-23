@@ -1,4 +1,5 @@
 import rawBundle from '../generated/tang-poem.json';
+import { researchedAuthors } from '../researchedContent';
 import { demoDataset } from './demo';
 import type { Dataset, ImageryLink, ImageryNode, ImageryOccurrence, Period, PoemRecord, PoetRecord, SourceRecord } from '../../types/domain';
 
@@ -101,10 +102,33 @@ const timeline: Dataset['timeline'] = {
   })),
 };
 
+// Keep the annotated corpus intact; unannotated source poems are reading material only.
+const enrichedPoets: PoetRecord[] = poets.map(poet => ({ ...poet, poemIds: [...poet.poemIds] }));
+const enrichedPoems: PoemRecord[] = [...poems];
+for (const author of Object.values(researchedAuthors)) {
+  let poet = enrichedPoets.find(p => p.name === author.name);
+  if (!poet) {
+    poet = { ...production, id: author.poetId, name: author.name, period: author.period,
+      biography: author.biography ? `${author.biographySource}：${author.biography}` : '', poemIds: [], reviewStatus: 'pending' };
+    enrichedPoets.push(poet);
+  }
+  for (const work of author.works ?? []) {
+    if (enrichedPoems.some(p => p.poetId === poet.id && p.title === work.title)) continue;
+    const id = `souyun-${work.id}`;
+    if (enrichedPoems.some(p => p.id === id)) continue;
+    enrichedPoems.push({ ...production, id, title: work.title, poetId: poet.id, poetName: poet.name,
+      period: poet.period, poeticForm: work.tag ?? '', fullText: work.text ?? '',
+      lineTexts: (work.text ?? '').match(/[^。！？]+[。！？]?/g) ?? [],
+      themes: [], imagery: [], colors: [], techniques: [], sourceLabel: '搜韵诗文库',
+      sourceLocator: work.sourceUrl ?? '', reviewStatus: 'pending' });
+    poet.poemIds = [...poet.poemIds, id];
+  }
+}
+
 export const tangPoemDataset: Dataset = {
   ...production,
-  poems,
-  poets,
+  poems: enrichedPoems,
+  poets: enrichedPoets,
   sources,
   imageryOccurrences,
   imageryGraph,
@@ -112,6 +136,9 @@ export const tangPoemDataset: Dataset = {
   timeline,
   quality: {
     ...rawBundle.meta,
+    poemCount: enrichedPoems.length,
+    poetCount: enrichedPoets.length,
+    lineCount: enrichedPoems.reduce((count, poem) => count + poem.lineTexts.length, 0),
     pendingRelationCount: rawBundle.quality.pendingRelationCount,
     pendingProsodyCount: rawBundle.quality.pendingProsodyCount,
   },

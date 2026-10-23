@@ -42,8 +42,9 @@ export function PoetProfile({ poet }: { poet: JournalPoet }) {
           <PoetryCalendar poet={poet} />
         </>}
         {view === 'biography' && <><div className="pj-biography"><dl><div><dt>字号</dt><dd>{poet.alias}</dd></div><div><dt>生卒年</dt><dd>{poet.dates}</dd></div><div><dt>籍贯</dt><dd>{poet.profile?.hometown || '资料待核实'}</dd></div></dl><section><h4>人物简介</h4><p>{poet.profile?.biography || '尚未接入可核实的人物传记。'}</p></section><section><h4>创作风格与评价</h4><p>{poet.description}</p><blockquote>{poet.quote}<cite>— {poet.name}</cite></blockquote><dl><div><dt>主要成就</dt><dd>{poet.profile?.achievements || '资料待核实'}</dd></div><div><dt>历史地位</dt><dd>{poet.profile?.status || '资料待核实'}</dd></div></dl></section><section><h4>主要经历</h4>{poet.profile?.milestones?.length ? <ol>{poet.profile.milestones.map((item, index) => <li key={index}>{item}</li>)}</ol> : <p>尚未收录有据可查的经历。</p>}</section><section><h4>交游关系</h4>{poet.profile?.connections?.length ? <ul>{poet.profile.connections.map((item, index) => <li key={index}>{item}</li>)}</ul> : <p>尚未收录有据可查的交游记录。</p>}</section></div><ProfileSources poet={poet} /></>}
-        {view === 'works' && <><Works key={workTitle ?? poet.id} poet={poet} initialTitle={workTitle} /><p className="pj-footnote">原文采用链接所示版本；创作年份为来源系年，未标年不作推定。</p></>}
+        {view === 'works' && <><Works key={workTitle ?? poet.id} poet={poet} initialTitle={workTitle} /></>}
       </>}
     </div>)}
   </article>;
 }
+

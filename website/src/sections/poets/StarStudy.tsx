@@ -82,20 +82,7 @@ export function StarStudy({
           : ["#163b69", "#b7e9ff"];
   return (
     <section className="pn-star-study" aria-label={`${name}星体近景`}>
-      <div className="pn-study-topline">
-        <span>{detailed ? "星体近景" : "原始光点 · 对照"}</span>
-        <span>
-          {fallback
-            ? "静态形态示意"
-            : !detailed
-              ? "静态对照"
-              : !playing
-                ? "自转已暂停"
-                : fps
-                  ? `${fps} FPS`
-                  : "WebGL"}
-        </span>
-      </div>
+      <div className="pn-study-topline"><span>星体近景</span></div>
       <div
         className="pn-study-viewport"
         role="region"
@@ -238,3 +225,4 @@ export function StarStudy({
     </section>
   );
 }
+

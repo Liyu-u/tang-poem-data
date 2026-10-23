@@ -34,7 +34,6 @@ export function PoemDrawer({ poem, onClose }: Props) {
           </div>
           <button type="button" className="poem-drawer__close" aria-label="关闭诗作详情" onClick={onClose}>×</button>
         </div>
-        <p className="poem-drawer__status">数据状态：{poem.reviewStatus === 'approved' ? '已审核标注' : '基础记录待审核'}</p>
         <div className="poem-drawer__text">
           {poem.lineTexts.map((line, index) => <p key={`${poem.id}-${index}`}>{line}</p>)}
         </div>
@@ -52,3 +51,4 @@ export function PoemDrawer({ poem, onClose }: Props) {
     </aside>
   );
 }
+

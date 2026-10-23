@@ -34,44 +34,25 @@ function loadSprite(file: string): Promise<HTMLImageElement> {
   return promise;
 }
 
-/** Affine texture triangles bend only a matted subject, with its roots pinned. */
-function triangle(ctx: CanvasRenderingContext2D, image: HTMLImageElement, src: number[], dst: number[]) {
-  const [x0,y0,x1,y1,x2,y2] = src;
-  const den = x0*(y1-y2)+x1*(y2-y0)+x2*(y0-y1);
-  if (Math.abs(den)<.0001) return;
-  const affine = (v0: number,v1: number,v2: number) => [
-    (v0*(y1-y2)+v1*(y2-y0)+v2*(y0-y1))/den,
-    (v0*(x2-x1)+v1*(x0-x2)+v2*(x1-x0))/den,
-    (v0*(x1*y2-x2*y1)+v1*(x2*y0-x0*y2)+v2*(x0*y1-x1*y0))/den,
-  ];
-  const [a,c,e]=affine(dst[0],dst[2],dst[4]), [b,d,f]=affine(dst[1],dst[3],dst[5]);
-  const cx=(dst[0]+dst[2]+dst[4])/3, cy=(dst[1]+dst[3]+dst[5])/3;
-  ctx.save(); ctx.beginPath();
-  // Subpixel overlap avoids antialiased seams between neighboring triangles.
-  for(let i=0;i<3;i++) {
-    const dx=dst[i*2]-cx, dy=dst[i*2+1]-cy, distance=Math.hypot(dx,dy)||1;
-    const px=dst[i*2]+dx/distance*.28, py=dst[i*2+1]+dy/distance*.28;
-    if(i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
-  }
-  ctx.closePath(); ctx.clip(); ctx.transform(a,b,c,d,e,f); ctx.drawImage(image,0,0); ctx.restore();
-}
-
+/** One-pixel scanlines bend the isolated pigment without triangle alpha seams. */
 function drawSubject(ctx: CanvasRenderingContext2D, image: HTMLImageElement, layer: PaintLayer, time: number, amount: number, pointer: ScenePointer) {
-  const mesh = layer.mesh ?? (layer.kind==='bend' ? [7,8] : layer.kind==='bird' ? [6,4] : layer.kind==='bloom' ? [3,3] : [5,3]);
-  // Bend displacement depends on height only: one column is exact and avoids
-  // redundant texture seams across fine leaves.
-  const columns=layer.kind==='bend'?1:Math.min(10,mesh[0]), rows=Math.min(18,mesh[1]);
-  const verts: Array<{sx:number;sy:number;x:number;y:number}> = [];
-  for(let row=0;row<=rows;row++) for(let col=0;col<=columns;col++) {
-    const sx=col/columns*layer.width, sy=row/rows*layer.height;
-    const moved=movePaintPoint(layer,layer.x+sx,layer.y+sy,time,amount,pointer);
-    verts.push({sx,sy,...moved});
+  if (layer.kind==='bend'||layer.kind==='water'||layer.kind==='reflection') {
+    for(let row=0;row<layer.height;row++) {
+      const p=movePaintPoint(layer,layer.x,layer.y+row,time,amount,pointer);
+      ctx.drawImage(image,0,row,layer.width,1,p.x,layer.y+row,layer.width,1);
+    }
+    return;
   }
-  const draw=(a: typeof verts[number],b:typeof a,c:typeof a)=>triangle(ctx,image,[a.sx,a.sy,b.sx,b.sy,c.sx,c.sy],[a.x,a.y,b.x,b.y,c.x,c.y]);
-  for(let row=0;row<rows;row++) for(let col=0;col<columns;col++) {
-    const a=verts[row*(columns+1)+col], b=verts[row*(columns+1)+col+1], c=verts[(row+1)*(columns+1)+col], d=verts[(row+1)*(columns+1)+col+1];
-    draw(a,b,c); draw(b,d,c);
+  const [cx,cy]=layer.pivot;
+  const p=movePaintPoint(layer,cx,cy,time,amount,pointer);
+  ctx.save();ctx.translate(p.x,p.y);
+  if(layer.kind==='bloom') {
+    const tip=movePaintPoint(layer,cx+layer.width/2,cy,time,amount,pointer);
+    const scale=Math.max(1,(tip.x-p.x)/(layer.width/2));ctx.scale(scale,scale);
   }
+  if(layer.kind==='bird')ctx.scale(1,1+Math.sin(time*7+layer.phase)*.3*amount);
+  if(layer.kind==='boat')ctx.rotate(Math.sin(time*1.3)*.012*amount);
+  ctx.drawImage(image,layer.x-cx,layer.y-cy,layer.width,layer.height);ctx.restore();
 }
 
 function makeBuffer(width: number, height: number) {
@@ -88,9 +69,9 @@ export async function createSceneRenderer(canvas: HTMLCanvasElement, source: HTM
   if(scene.light) sprites.push(scene.light);
   const loaded=await Promise.all(sprites.map(async(sprite)=>[sprite.file,await loadSprite(sprite.file)] as const));
   const bitmaps=new Map(loaded);
-  const canvasContext=canvas.getContext('2d',{alpha:true});
-  if(!canvasContext) return null;
-  const ctx: CanvasRenderingContext2D = canvasContext;
+  const context=canvas.getContext('2d',{alpha:true});
+  if(!context) return null;
+  const ctx: CanvasRenderingContext2D=context;
   let disposed=false;
   const light=scene.light;
   const lightBuffer=light ? makeBuffer(light.width,light.height) : null;
@@ -102,7 +83,7 @@ export async function createSceneRenderer(canvas: HTMLCanvasElement, source: HTM
   function shimmer(time:number,amount:number) {
     if(region.name!=='月'&&region.name!=='水') return;
     const {x,y,width,height}=waterBounds;
-    const target: CanvasRenderingContext2D=waterBuffer?.ctx??ctx;
+    const target=waterBuffer?.ctx??ctx;
     if(waterBuffer) { target.clearRect(0,0,width,height); target.save(); target.translate(-x,-y); }
     target.save(); target.lineCap='round'; target.lineWidth=region.name==='月'?1.3:1;
     for(let i=0;i<(region.name==='月'?70:24);i++) {
@@ -176,5 +157,3 @@ export async function createSceneRenderer(canvas: HTMLCanvasElement, source: HTM
     dispose() { disposed=true;lightBuffer?.ctx?.clearRect(0,0,lightBuffer.canvas.width,lightBuffer.canvas.height);waterBuffer?.ctx?.clearRect(0,0,waterBuffer.canvas.width,waterBuffer.canvas.height); },
   };
 }
-
-

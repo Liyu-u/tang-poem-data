@@ -1,15 +1,17 @@
-import relationCsv from "../../../../data/poet_relations.csv?raw";
-import publicRelationCsv from "../../../../public_data/relations.csv?raw";
-import publicPoetCsv from "../../../../public_data/poets.csv?raw";
+import relationCsv from "../../../tang-poem-data/data/poet_relations.csv?raw";
+import publicRelationCsv from "../../../tang-poem-data/public_data/relations.csv?raw";
+import publicPoetCsv from "../../../tang-poem-data/public_data/poets.csv?raw";
 import { starProfile, type StarProfile } from "./starProfiles";
 import type { Dataset, PoetRecord } from "../../types/domain";
 import { researchedRelations, supplementalPoets } from "./supplementalPoets";
+import { researchedAuthors, researchedCourtesyName } from "../../data/researchedContent";
 
 export type Vec3 = { x: number; y: number; z: number };
 export type NetworkPoet = PoetRecord & {
   position: Vec3;
   star: StarProfile;
   dateLabel?: string;
+  biographyUrl?: string;
 };
 export type PoetRelation = {
   id: string;
@@ -188,7 +190,7 @@ export function buildPoetNetwork(dataset: Dataset) {
         name: row.name,
         period: row.period as PoetRecord["period"],
         dateLabel: `${row.birth_year || "生年待考"} — ${row.death_year || "卒年待考"}`,
-        biography: `唐代诗人。人物资料取自本地公开诗人表，生卒年沿用该表的约数与待考口径。人物详情仍待审核。`,
+        biography: "唐代诗人。",
         poemIds: dataset.poems
           .filter((p) => p.poetId === row.poet_id)
           .map((p) => p.id),
@@ -204,7 +206,7 @@ export function buildPoetNetwork(dataset: Dataset) {
         name,
         period,
         dateLabel: "生卒年待考",
-        biography: "唐代诗人。人物已列入星河拓展名录；生平、字号与生卒年仍待逐项核验。",
+        biography: "唐代诗人。",
         poemIds: [],
         isDemo: false,
         dataStatus: "production",
@@ -291,6 +293,10 @@ export function buildPoetNetwork(dataset: Dataset) {
   const poets: NetworkPoet[] = records.map((p) => {
     return {
       ...p,
+      dateLabel: researchedAuthors[p.name]?.dates ?? p.dateLabel ?? "生卒年不详",
+      courtesyName: p.courtesyName ?? researchedCourtesyName(p.name) ?? researchedAuthors[p.name]?.biography?.match(/字([^，。；：]{1,5})/)?.[1],
+      biographyUrl: researchedAuthors[p.name]?.biographyUrl ?? researchedAuthors[p.name]?.sourceUrl,
+      biography: p.biography && !/待审核|待逐项核验|本地公开诗人表/.test(p.biography) ? p.biography : researchedAuthors[p.name]?.biography ?? p.biography,
       star: starProfile(p.name),
       position: positions.get(p.id)!,
     };
@@ -321,5 +327,3 @@ export function projectPoint(
 export function boundedZoom(value: number) {
   return Math.min(1.65, Math.max(0.65, value));
 }
-
-

@@ -14,8 +14,8 @@ function PoemDetailRoute() {
   if (!poem) {
     return (
       <main className="route-page">
-        <p className="route-page__eyebrow">演示样本</p>
-        <h1>未找到这首演示诗作</h1>
+        
+        <h1>未找到这首诗作</h1>
         <Link className="button button--text" to="/">回到数字长卷</Link>
       </main>
     );
@@ -34,4 +34,5 @@ export const router = createBrowserRouter([
   { path: '/', element: <LongScrollHome /> },
   { path: '/acknowledgements', element: <AcknowledgementsScroll /> },
   { path: '/poems/:poemId', element: <PoemDetailRoute /> },
-], { basename: import.meta.env.BASE_URL });
+]);
+
