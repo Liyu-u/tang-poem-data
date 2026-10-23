@@ -34,5 +34,6 @@ export const router = createBrowserRouter([
   { path: '/', element: <LongScrollHome /> },
   { path: '/acknowledgements', element: <AcknowledgementsScroll /> },
   { path: '/poems/:poemId', element: <PoemDetailRoute /> },
-]);
+], { basename: import.meta.env.BASE_URL });
+
 
